@@ -16,7 +16,7 @@ import tagsPickerModule from "./details/tags-picker.js";
 import ttlPickerModule from "./details/ttl-picker.js";
 import createIsseeksModule from "./create-isseeks.js";
 import { postTitleCharacterLimit } from "config";
-import { get, getIn, attach } from "../utils.js";
+import { get, getIn, attach, clone } from "../utils.js";
 import { actionCreators } from "../actions/actions.js";
 import won from "../won-es6.js";
 import { connect2Redux } from "../won-utils.js";
@@ -229,21 +229,8 @@ function genComponentConf() {
       // Post both needs
       if (!this.pendingPublishing) {
         this.pendingPublishing = true;
-
-        const tmpList = ["is", "seeks"];
-        const newObject = {
-          is: this.draftObject.is,
-          seeks: this.draftObject.seeks,
-        };
-
-        for (const tmp of tmpList) {
-          if (newObject[tmp].title === "") {
-            delete newObject[tmp];
-          }
-        }
-
         this.needs__create(
-          newObject,
+          clone(this.draftObject),
           this.$ngRedux.getState().getIn(["config", "defaultNodeUri"])
         );
       }

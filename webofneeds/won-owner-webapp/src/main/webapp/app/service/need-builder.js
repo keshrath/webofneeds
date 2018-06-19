@@ -139,9 +139,14 @@ import { getIn } from "../utils.js";
 
     const buildContentNode = (id, isOrSeeksData, isSeeks) => ({
       "@id": id,
-      "dc:title": isOrSeeksData.title,
-      "dc:description": isOrSeeksData.description,
-      "won:hasTag": isOrSeeksData.tags,
+      "dc:title": isOrSeeksData.title ? isOrSeeksData.title : undefined,
+      "dc:description": isOrSeeksData.description
+        ? isOrSeeksData.description
+        : undefined,
+      "won:hasTag":
+        isOrSeeksData.tags && isOrSeeksData.tags.size > 0
+          ? isOrSeeksData.tags
+          : undefined,
       "won:hasAttachment": hasAttachmentUrls(isOrSeeksData)
         ? isOrSeeksData.attachmentUris.map(uri => ({ "@id": uri }))
         : undefined,
@@ -322,12 +327,7 @@ import { getIn } from "../utils.js";
     return {
       "@graph": graph,
       "@context": {
-        s: "http://schema.org/",
-        foaf: "http://xmlns.com/foaf/0.1/",
-        /*
-                 TODO add following datatypes to context
-                 TODO only add the ones that are required?
-                 */
+        ...won.defaultContext, // needed for the arbitrary rdf
 
         //TODO probably an alias instead of an type declaration as it's intended here
         "won:hasCurrency": "xsd:string",
