@@ -769,8 +769,9 @@ import won from "./won.js";
       method: "get",
       credentials: "same-origin",
       // the caching layer used by functions with a higher abstraction should
-      // catch cachable calls for us, so we can always reload if we get here:
-      //cache: "reload",
+      // catch cachable calls for us, so we can always ask the server if there's
+      // newer versions if we get here:
+      cache: "no-cache",
       headers: {
         Accept: "application/ld+json",
         Prefer: params.pagingSize

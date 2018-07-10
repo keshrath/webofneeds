@@ -399,25 +399,10 @@ export function reconnect() {
 
       won.clearStore(); // any data we have might have become stale (TODO with the exception of events)
 
-      // reload while ignoring browser caches!
-
-      // load everything as we would in an initial page load action (of the correct login type)
-
-      // dispatch
-
       /*
       * -- check for new connections (i.e. matches and incoming requests) --
       */
-      // await pageLoadAction()(dispatch, getState);
-      // const email = getIn(state, ["user", "email"]);
-      // await fetchOwnedData(email, payload => {
-      //   console.log("deleteme -- fetched and would dispatch: ", payload);
-      //   dispatch({
-      //     type: actionTypes.initialPageLoad, // TODO make this it's own type
-      //     payload: wellFormedPayload(payload),
-      //   });
-      // });
-      //TODO hard reload
+      dispatch(actionCreators.initialPageLoad()); // TODO hacky to just trigger this here
 
       /* 
        * -- loading latest messages for all connections (we might have missed some during the dc) --

@@ -587,24 +587,14 @@ export async function fetchDataForOwnedNeeds(
     fetchTheirNeedAndDispatch(uri, curriedDispatch)
   );
 
-  const allDataRawPromise = Promise.all([
+  return wellFormedPayload({
     allOwnNeeds,
     allConnections,
+    events: {
+      /* will be loaded later when connection is accessed */
+    },
     allTheirNeeds,
-  ]);
-
-  return allDataRawPromise.then(
-    ([ownNeeds, connections, /* events, */ theirNeeds]) => {
-      wellFormedPayload({
-        ownNeeds,
-        connections,
-        events: {
-          /* will be loaded later when connection is accessed */
-        },
-        theirNeeds,
-      });
-    }
-  );
+  });
 
   /**
      const allAccessibleAndRelevantData = {

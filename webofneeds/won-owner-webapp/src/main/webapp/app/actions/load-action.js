@@ -3,7 +3,7 @@
  */
 
 import Immutable from "immutable";
-import { actionTypes, actionCreators } from "./actions.js";
+import { actionTypes } from "./actions.js";
 import { selectOpenPostUri } from "../selectors.js";
 
 import { checkAccessToCurrentRoute } from "../configRouting.js";
@@ -111,9 +111,6 @@ function loadingWithAnonymousAccount(dispatch, getState, privateId) {
 }
 
 function loginSuccess(username, loginStatus, dispatch, getState) {
-  // reset websocket to make sure it's using the logged-in session
-  dispatch(actionCreators.reconnect__start());
-
   /* quickly dispatch log-in status, even before loading data, to
      * allow making correct access-control decisions
      */
