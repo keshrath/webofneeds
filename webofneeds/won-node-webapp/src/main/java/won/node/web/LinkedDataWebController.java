@@ -779,7 +779,7 @@ public class LinkedDataWebController {
 			@Override
 			public void addHeaders(final HttpHeaders headers) {
 				addCORSHeader(headers);
-				addPublicHeaders(headers);
+				addMutableResourceHeaders(headers);
 			}
 		});
 	}
@@ -839,6 +839,7 @@ public class LinkedDataWebController {
 			// TODO: need information does change over time. The immutable need information
 			// should never expire, the mutable should
 			HttpHeaders headers = new HttpHeaders();
+			addMutableResourceHeaders(headers);
 			addCORSHeader(headers);
 			return new ResponseEntity<>(dataset, headers, HttpStatus.OK);
 		} catch (NoSuchNeedException | NoSuchConnectionException | NoSuchMessageException e) {
@@ -881,7 +882,7 @@ public class LinkedDataWebController {
 			@Override
 			public void addHeaders(final HttpHeaders headers) {
 				addCORSHeader(headers);
-				addPublicHeaders(headers);
+				addMutableResourceHeaders(headers);
 			}
 		});
 	}
