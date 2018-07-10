@@ -30,6 +30,13 @@ export function wellFormedPayload(payload) {
   return emptyDataset.mergeDeep(Immutable.fromJS(payload));
 }
 
+export function numOfEvts2pageSize(numberOfEvents) {
+  // `*3*` to compensate for the *roughly* 2 additional success events per chat message
+  return numberOfEvents * 3;
+}
+
+const CHATMSGS_TO_LOAD_INITIALLY = 10;
+
 export function buildRateMessage(
   msgToRateFor,
   ownNeedUri,
@@ -582,18 +589,25 @@ export async function fetchDataForOwnedNeeds(
   curriedDispatch(
     wellFormedPayload({ theirNeedUrisInLoading: theirNeedUris_ })
   );
-  console.log("fetchTheirNeedAndDispatch for: ", theirNeedUris_);
-  const allTheirNeeds = await urisToLookupMap(theirNeedUris_, uri =>
+
+  const allTheirNeedsP = urisToLookupMap(theirNeedUris_, uri =>
     fetchTheirNeedAndDispatch(uri, curriedDispatch)
   );
+  const eventPromises = Object.values(allConnections).map(cnct =>
+    fetchLatestEventsOfConnectionAndDispatch(cnct, curriedDispatch)
+  );
+  const eventsPerConnectionAsList = await Promise.all(eventPromises);
+  const events = Object.values(eventsPerConnectionAsList).reduce(
+    (a, b) => Object.assign(a, b),
+    {}
+  );
+  console.log(" Got events during initial page load (#deleteme): ", events);
 
   return wellFormedPayload({
     allOwnNeeds,
     allConnections,
-    events: {
-      /* will be loaded later when connection is accessed */
-    },
-    allTheirNeeds,
+    events,
+    allTheirNeeds: await allTheirNeedsP,
   });
 
   /**
@@ -685,4 +699,27 @@ function fetchTheirNeedAndDispatch(needUri, curriedDispatch = () => undefined) {
     curriedDispatch(wellFormedPayload({ theirNeeds: { [needUri]: need } }))
   );
   return needP;
+}
+
+/**
+ *  load ~10 messages (CHATMSGS_TO_LOAD_INITIALLY) per connections. the rest can be loaded e.g. using the "show more" button
+ */
+async function fetchLatestEventsOfConnectionAndDispatch(
+  connection,
+  curriedDispatch = () => undefined
+) {
+  const eventsOfConnection = await won.getWonMessagesOfConnection(
+    connection.uri,
+    {
+      requesterWebId: connection.belongsToNeed,
+      pagingSize: numOfEvts2pageSize(CHATMSGS_TO_LOAD_INITIALLY),
+      deep: true,
+    }
+  );
+  curriedDispatch(
+    wellFormedPayload({
+      events: eventsOfConnection,
+    })
+  );
+  return eventsOfConnection;
 }

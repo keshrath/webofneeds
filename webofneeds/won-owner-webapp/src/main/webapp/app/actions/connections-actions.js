@@ -24,6 +24,7 @@ import {
   buildChatMessage,
   buildRateMessage,
   buildConnectMessage,
+  numOfEvts2pageSize,
 } from "../won-message-utils.js";
 
 export function connectionsChatMessage(
@@ -529,9 +530,4 @@ export function showMoreMessages(connectionUriParam, numberOfEvents) {
         });
       });
   };
-}
-
-function numOfEvts2pageSize(numberOfEvents) {
-  // `*3*` to compensate for the *roughly* 2 additional success events per chat message
-  return numberOfEvents * 3;
 }
