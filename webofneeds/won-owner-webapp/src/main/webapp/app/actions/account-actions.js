@@ -397,6 +397,14 @@ export function reconnect() {
 
       const state = getState();
 
+      won.clearStore(); // any data we have might have become stale (TODO with the exception of events)
+
+      // reload while ignoring browser caches!
+
+      // load everything as we would in an initial page load action (of the correct login type)
+
+      // dispatch
+
       /*
       * -- check for new connections (i.e. matches and incoming requests) --
       */

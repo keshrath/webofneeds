@@ -768,6 +768,9 @@ import won from "./won.js";
     const datasetP = fetch(requestUri, {
       method: "get",
       credentials: "same-origin",
+      // the caching layer used by functions with a higher abstraction should
+      // catch cachable calls for us, so we can always reload if we get here:
+      //cache: "reload",
       headers: {
         Accept: "application/ld+json",
         Prefer: params.pagingSize
