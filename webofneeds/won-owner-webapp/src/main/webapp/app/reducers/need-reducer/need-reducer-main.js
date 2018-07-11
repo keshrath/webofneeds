@@ -113,10 +113,17 @@ export default function(allNeedsInState = initialState, action = {}) {
         activeConnectionUrisLoading
       );
 
-      return storeConnectionsData(
+      const stateWithConnectionData = storeConnectionsData(
         stateWithConnectionsToLoad,
         action.payload.get("connections")
       );
+
+      const stateWithEvents = addExistingMessages(
+        stateWithConnectionData,
+        getIn(action, ["payload", "events"])
+      );
+
+      return stateWithEvents;
     }
 
     case actionTypes.messages.closeNeed.failed:
