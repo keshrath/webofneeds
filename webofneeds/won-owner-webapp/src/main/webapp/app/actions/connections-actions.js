@@ -478,7 +478,7 @@ export async function loadLatestMessagesOfConnection({
  * @return {Function}
  */
 export function showMoreMessages(connectionUriParam, numberOfEvents) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const state = getState();
     const connectionUri = connectionUriParam || selectOpenConnectionUri(state);
     const need =
@@ -503,31 +503,29 @@ export function showMoreMessages(connectionUriParam, numberOfEvents) {
       payload: Immutable.fromJS({ connectionUri, isLoadingMessages: true }),
     });
 
-    won
-      .getWonMessagesOfConnection(connectionUri, {
+    try {
+      const events = await won.getWonMessagesOfConnection(connectionUri, {
         requesterWebId: needUri,
         pagingSize: numOfEvts2pageSize(numberOfEvents),
         deep: true,
         resumebefore: messageHashValue,
-      })
-      .then(events =>
-        dispatch({
-          type: actionTypes.connections.showMoreMessages,
-          payload: Immutable.fromJS({
-            connectionUri: connectionUri,
-            events: events,
-          }),
-        })
-      )
-      .catch(error => {
-        console.error("Failed loading more events: ", error);
-        dispatch({
-          type: actionTypes.connections.showMoreMessages,
-          payload: Immutable.fromJS({
-            connectionUri: connectionUri,
-            error: error,
-          }),
-        });
       });
+      dispatch({
+        type: actionTypes.connections.showMoreMessages,
+        payload: Immutable.fromJS({
+          connectionUri: connectionUri,
+          events: events,
+        }),
+      });
+    } catch (error) {
+      console.error("Failed loading more events: ", error);
+      dispatch({
+        type: actionTypes.connections.showMoreMessages,
+        payload: Immutable.fromJS({
+          connectionUri: connectionUri,
+          error: error,
+        }),
+      });
+    }
   };
 }
