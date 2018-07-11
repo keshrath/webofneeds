@@ -45,11 +45,6 @@ export function wellFormedPayload(payload) {
   return wellFormedPayload;
 }
 
-export function numOfEvts2pageSize(numberOfEvents) {
-  // `*3*` to compensate for the *roughly* 2 additional success events per chat message
-  return numberOfEvents * 3;
-}
-
 const CHATMSGS_TO_LOAD_INITIALLY = 10;
 
 export function buildRateMessage(
@@ -619,7 +614,6 @@ export async function fetchDataForOwnedNeeds(
     (a, b) => Object.assign(a, b),
     {}
   );
-  console.log(" Got events during initial page load (#deleteme): ", events);
 
   return wellFormedPayload({
     allOwnNeeds,
@@ -730,10 +724,26 @@ async function fetchLatestEventsOfConnectionAndDispatch(
     connection.uri,
     {
       requesterWebId: connection.belongsToNeed,
-      pagingSize: numOfEvts2pageSize(CHATMSGS_TO_LOAD_INITIALLY),
+      pagingSize: won.numOfEvts2pageSize(CHATMSGS_TO_LOAD_INITIALLY),
       deep: true,
     }
   );
+
+  /* ensure all unread messages are present (by going back until a read message is found) */
+  //TODO make recurrent; move to ld-service
+
+  /*
+  const receivedMessages = eventsOfConnection.filter(msg => !msg.isFromOwner());
+  const receivedReadMessages = eventsOfConnection.filter(
+    msg => !msg.isFromOwner() && isUriRead(msg.getMessageUri())
+  );
+  const receivedMessagesReadPresent = receivedReadMessages.size > 0;
+  if (!receivedMessagesReadPresent) {
+    // ensureUnreadMessagesAreLoaded - Only unread received Messages in connection
+    // we need to crawl further
+    // => this.connections__showMoreMessages(conn.get("uri"), MESSAGECOUNT);
+  }
+  */
   curriedDispatch(
     wellFormedPayload({
       events: eventsOfConnection,

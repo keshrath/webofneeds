@@ -24,7 +24,6 @@ import {
   buildChatMessage,
   buildRateMessage,
   buildConnectMessage,
-  numOfEvts2pageSize,
 } from "../won-message-utils.js";
 
 export function connectionsChatMessage(
@@ -407,9 +406,9 @@ export async function loadLatestMessagesOfConnection({
   }
 
   try {
-    const events = await won.getWonMessagesOfConnection(connectionUri_, {
+    const events = await won.getLatestWonMessagesOfConnection(connectionUri_, {
       requesterWebId: needUri,
-      pagingSize: numOfEvts2pageSize(numberOfEvents),
+      pagingSize: won.numOfEvts2pageSize(numberOfEvents),
       deep: true,
     });
 
@@ -485,30 +484,19 @@ export function showMoreMessages(connectionUriParam, numberOfEvents) {
       connectionUri && selectNeedByConnectionUri(state, connectionUri);
     const needUri = need && need.get("uri");
     const connection = need && need.getIn(["connections", connectionUri]);
-    const connectionMessages = connection && connection.get("messages");
 
     if (connection.get("isLoadingMessages")) return; // only start loading once.
 
-    // determine the oldest loaded event
-    const sortedConnectionMessages = connectionMessages
-      .valueSeq()
-      .sort((msg1, msg2) => msg1.get("date") - msg2.get("date"));
-    const oldestMessage = sortedConnectionMessages.first();
-
-    const messageHashValue =
-      oldestMessage &&
-      oldestMessage.get("uri").replace(/.*\/event\/(.*)/, "$1"); // everything following the `/event/`
     dispatch({
       type: actionTypes.connections.showMoreMessages,
       payload: Immutable.fromJS({ connectionUri, isLoadingMessages: true }),
     });
 
     try {
-      const events = await won.getWonMessagesOfConnection(connectionUri, {
+      const events = await won.getMoreWonMessagesOfConnection(connectionUri, {
         requesterWebId: needUri,
-        pagingSize: numOfEvts2pageSize(numberOfEvents),
+        pagingSize: won.numOfEvts2pageSize(numberOfEvents),
         deep: true,
-        resumebefore: messageHashValue,
       });
       dispatch({
         type: actionTypes.connections.showMoreMessages,

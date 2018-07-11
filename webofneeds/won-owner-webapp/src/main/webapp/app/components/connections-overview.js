@@ -16,7 +16,8 @@ import extendedConnectionIndicatorsModule from "./extended-connection-indicators
 import connectionSelectionItemModule from "./connection-selection-item.js";
 import createPostItemModule from "./create-post-item.js";
 
-import { attach, delay, sortByDate, get } from "../utils.js";
+// import { attach, delay, sortByDate, get } from "../utils.js";
+import { attach, sortByDate, get } from "../utils.js";
 import { connect2Redux } from "../won-utils.js";
 import { actionCreators } from "../actions/actions.js";
 
@@ -257,62 +258,6 @@ function genComponentConf() {
         if (newValue && !oldValue) {
           self.open[newValue] = true;
         }
-      });
-
-      this.$scope.$watch("self.connectionsToCrawl", cnctToCrawl =>
-        this.ensureUnreadMessagesAreLoaded(cnctToCrawl)
-      );
-    }
-
-    ensureUnreadMessagesAreLoaded(connectionsToCrawl) {
-      delay(0).then(() => {
-        const MESSAGECOUNT = 10;
-
-        if (connectionsToCrawl.size == 0) {
-          console.log("ensureUnreadMessagesAreLoaded - nothing to crawl");
-        }
-
-        connectionsToCrawl.map(conn => {
-          if (conn.get("isLoadingMessages")) return;
-          const messages = conn.get("messages");
-          const messageCount = messages ? messages.size : 0;
-
-          if (messageCount == 0) {
-            console.log(
-              "ensureUnreadMessagesAreLoaded - Getting Latest Messages for connection: ",
-              conn.get("uri"),
-              " already loaded: ",
-              messageCount,
-              " messages"
-            );
-            this.connections__showLatestMessages(conn.get("uri"), MESSAGECOUNT);
-          } else {
-            const receivedMessages = messages.filter(
-              msg => !msg.get("outgoingMessage")
-            );
-            const receivedMessagesReadPresent =
-              receivedMessages.filter(msg => !msg.get("unread")).size > 0;
-
-            if (receivedMessagesReadPresent) {
-              console.log(
-                "ensureUnreadMessagesAreLoaded - At least one Received Message already read in connection: ",
-                conn.get("uri"),
-                ", stop crawling further, already loaded: ",
-                messageCount,
-                " messages"
-              );
-            } else {
-              console.log(
-                "ensureUnreadMessagesAreLoaded - Only unread received Messages in connection: ",
-                conn.get("uri"),
-                ", crawl further, already loaded: ",
-                messageCount,
-                " messages"
-              );
-              this.connections__showMoreMessages(conn.get("uri"), MESSAGECOUNT);
-            }
-          }
-        });
       });
     }
 

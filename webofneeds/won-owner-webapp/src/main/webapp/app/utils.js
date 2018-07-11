@@ -338,6 +338,8 @@ export function checkHttpStatus(response) {
 }
 
 /**
+ * Creates a new object with only keys that occur in `defaults`
+ * but uses values from `obj` whenever possible.
  *
  * e.g.
  * ```
@@ -351,7 +353,7 @@ export function checkHttpStatus(response) {
  *                   overwritten by the ones in obj where they exist.
  *                   always returns an object as long as `defaults` is one
  */
-export function withDefaults(obj, defaults) {
+export function withWhitelistOfDefaults(obj, defaults) {
   const ret = {};
   for (const k in defaults) {
     ret[k] = obj && obj[k] ? obj[k] : defaults[k];

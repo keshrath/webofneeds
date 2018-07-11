@@ -26,7 +26,10 @@ import {
   rethrow,
   getIn,
   get,
+  msStringToDate,
 } from "../utils.js";
+
+import { isUriRead } from "../won-localstorage.js";
 
 import { ownerBaseUrl } from "config";
 import urljoin from "url-join";
@@ -1358,9 +1361,131 @@ import won from "./won.js";
       connectionUri,
       fetchParams
     );
-    return urisToLookupMap(eventUris, eventUri =>
+    const messages = await urisToLookupMap(eventUris, eventUri =>
       won.getWonMessage(eventUri, fetchParams)
     );
+    return messages;
+  };
+
+  /**
+   * Builds on `won.getWonMessagesOfConnection` but adds a bit of logic. Namely it
+   * specifically loads the latest messages, always all unread messages or at least
+   * `fetchParams.pagingSize` (whichever is the higher number)
+   * @param {*} connectionUri
+   * @param {*} fetchParams
+   */
+  won.getLatestWonMessagesOfConnection = async function(
+    connectionUri,
+    fetchParams
+  ) {
+    const fetchParamsWithDefaults = Object.assign(
+      { pagingSize: won.numOfEvts2pageSize(10) }, // defaults
+      fetchParams
+    );
+
+    const isFinishedLoading = messages => {
+      const isEmptyConnection = !messages || messages.size === 0;
+      // const receivedMessages = messages.filter(msg => !msg.isFromOwner());
+      const receivedReadMessages = messages.filter(
+        msg => !msg.isFromOwner() && isUriRead(msg.getMessageUri())
+      );
+      const receivedReadMessagesPresent = receivedReadMessages.size > 0;
+      // also break if we have loaded everything or if there's no messages (e.g. as for a hint)
+      const connectMessageLoaded =
+        messages.filter(m => m.getMessageType() === won.WONMSG.connectMessage)
+          .size > 0;
+
+      const finishedLoading =
+        isEmptyConnection ||
+        connectMessageLoaded ||
+        receivedReadMessagesPresent;
+
+      return finishedLoading;
+    };
+
+    let messages = await won.getWonMessagesOfConnection(
+      connectionUri,
+      fetchParamsWithDefaults
+    );
+
+    while (!isFinishedLoading(messages)) {
+      // ensureUnreadMessagesAreLoaded - Only unread received Messages in connection
+      // we need to crawl further
+      const moreMessages = await won.getMoreWonMessagesOfConnection(
+        connectionUri,
+        fetchParamsWithDefaults
+      );
+
+      messages = messages.merge(moreMessages);
+    }
+
+    return messages;
+  };
+
+  /**
+   * Gets up to `fetchParams.pagingSize` (default=10) more messages of the connection.
+   * Uses `won.getWonMessagesOfConnection` under the hood, but calculates
+   * the value for `resumebefore` for you, i.e. finds the oldest already loaded
+   * message and loads messages before that.
+   */
+  won.getMoreWonMessagesOfConnection = async function(
+    connectionUri,
+    fetchParams
+  ) {
+    const fetchParamsWithDefaults = Object.assign(
+      { pagingSize: won.numOfEvts2pageSize(10) }, // defaults
+      fetchParams
+    );
+    /* ----------  determine the oldest loaded event ------- */
+
+    // retrieve already loaded events
+    const eventUris = await won.getEventUrisOfConnection(
+      connectionUri,
+      fetchParamsWithDefaults
+    );
+    const loadedMessages = await Promise.all(
+      eventUris.map(uri => won.getAlreadyLoadedWonMessage(uri))
+    );
+
+    // filter out success-responses and such and only keep actual messages
+    const loadedConnectionMessages = loadedMessages.filter(
+      msg => msg.getContentGraphs().length > 0
+    );
+
+    const toDate = msg => msStringToDate(msg.getTimestamp());
+    const sortedConnectionMessages = loadedConnectionMessages.sort(
+      (msg1, msg2) => toDate(msg1) - toDate(msg2)
+    );
+
+    const oldestMessage = get(sortedConnectionMessages, 0);
+
+    const messageHashValue =
+      oldestMessage &&
+      oldestMessage.getMessageUri().replace(/.*\/event\/(.*)/, "$1"); // everything following the `/event/`
+    console.log(
+      "deleteme foobar(): ",
+      sortedConnectionMessages,
+      oldestMessage,
+      messageHashValue
+    );
+
+    try {
+      const events = await won.getWonMessagesOfConnection(connectionUri, {
+        ...fetchParamsWithDefaults,
+        resumebefore: messageHashValue,
+      });
+      return events;
+    } catch (error) {
+      rethrow(
+        error,
+        "Failed loading more events for connection " + connectionUri
+      );
+    }
+  };
+
+  won.numOfEvts2pageSize = numberOfEvents => {
+    // `*3*` to compensate for the *roughly* 2 additional success events per chat message
+    return numberOfEvents * 3;
   };
 
   /**
@@ -1417,8 +1542,27 @@ import won from "./won.js";
     return wonMessage;
   };
 
+  /**
+   * Retrieves WonMessage from the rdf-store that has already been
+   * previously loaded.
+   */
+  won.getAlreadyLoadedWonMessage = async eventUri => {
+    const rawEvent = await won.getAlreadyLoadedRawEvent(eventUri);
+    const wonMessage = await won.wonMessageFromJsonLd(rawEvent);
+    return wonMessage;
+  };
+
   won.getRawEvent = async (eventUri, fetchParams) => {
     await won.ensureLoaded(eventUri, fetchParams);
+    const rawEvent = await won.getAlreadyLoadedRawEvent(eventUri);
+    return rawEvent;
+  };
+
+  /**
+   * Retrieves event from the rdf-store that has already been
+   * previously loaded.
+   */
+  won.getAlreadyLoadedRawEvent = async eventUri => {
     const eventGraphs = await Promise.all(
       Array.from(privateData.documentToGraph[eventUri]).map(async graphUri => {
         const graphTriples = await won.getCachedGraphTriples(graphUri);
