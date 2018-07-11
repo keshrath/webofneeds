@@ -4,7 +4,7 @@
 
 import won from "./won-es6.js";
 import Immutable from "immutable";
-import { checkHttpStatus, urisToLookupMap, is } from "./utils.js";
+import { checkHttpStatus, urisToLookupMap, is, get } from "./utils.js";
 
 import { ownerBaseUrl } from "config";
 import urljoin from "url-join";
@@ -27,7 +27,22 @@ export const emptyDataset = Immutable.fromJS({
 });
 
 export function wellFormedPayload(payload) {
-  return emptyDataset.mergeDeep(Immutable.fromJS(payload));
+  const almostWellFormedPayload = emptyDataset.mergeDeep(
+    Immutable.fromJS(payload)
+  );
+
+  /*
+   * TODO: hack/workaround; atm we can't make the `WonMessage`s contained in `events` immutable
+   * so we need to keep them in their original form. We can make the outer map that they're 
+   * contained in into an immutable map at least, though.
+   * https://github.com/researchstudio-sat/webofneeds/issues/2121
+   */
+  const events = get(payload, "events");
+  const wellFormedPayload = events
+    ? almostWellFormedPayload.set("events", Immutable.Map(events))
+    : almostWellFormedPayload;
+
+  return wellFormedPayload;
 }
 
 export function numOfEvts2pageSize(numberOfEvents) {
