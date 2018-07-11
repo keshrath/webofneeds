@@ -65,14 +65,15 @@ export function addMessage(state, wonMessage, alreadyProcessed = false) {
  sent status anymore and assume that it has been successfully sent to each server (incl. the remote)
  */
 export function addExistingMessages(state, wonMessages) {
+  let updatedState = state;
   if (wonMessages && wonMessages.size > 0) {
-    wonMessages.map(wonMessage => {
-      state = addMessage(state, wonMessage, true);
+    wonMessages.forEach(wonMessage => {
+      updatedState = addMessage(updatedState, wonMessage, true);
     });
   } else {
     console.log("no messages to add");
   }
-  return state;
+  return updatedState;
 }
 
 export function markMessageAsRead(state, messageUri, connectionUri, needUri) {
