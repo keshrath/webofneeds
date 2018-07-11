@@ -605,12 +605,15 @@ export async function fetchDataForOwnedNeeds(
     wellFormedPayload({ theirNeedUrisInLoading: theirNeedUris_ })
   );
 
-  const allTheirNeedsP = urisToLookupMap(theirNeedUris_, uri =>
+  // <paralell>
+  const allTheirNeedsPromise = urisToLookupMap(theirNeedUris_, uri =>
     fetchTheirNeedAndDispatch(uri, curriedDispatch)
   );
   const eventPromises = Object.values(allConnections).map(cnct =>
     fetchLatestEventsOfConnectionAndDispatch(cnct, curriedDispatch)
   );
+  // </paralell>
+
   const eventsPerConnectionAsList = await Promise.all(eventPromises);
   const events = Object.values(eventsPerConnectionAsList).reduce(
     (a, b) => Object.assign(a, b),
@@ -622,7 +625,7 @@ export async function fetchDataForOwnedNeeds(
     allOwnNeeds,
     allConnections,
     events,
-    allTheirNeeds: await allTheirNeedsP,
+    allTheirNeeds: await allTheirNeedsPromise,
   });
 
   /**
