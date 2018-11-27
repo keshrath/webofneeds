@@ -44,6 +44,8 @@ body {
       grid-area: header;
       position: sticky;
       top: 0;
+      padding-top: constant(safe-area-inset-top);
+      padding-top: env(safe-area-inset-top);
       border-bottom: $thinBorderWidth solid $won-line-gray;
       z-index: 1000;
       box-sizing: border-box;
