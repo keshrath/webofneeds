@@ -46,7 +46,7 @@ public class LastSeenNeedsMatcherBot extends EventBot
 {
 
   private BaseEventListener matcherRegistrator;
-  private BaseEventListener matcherIndexer;
+  // private BaseEventListener matcherIndexer;
   private int registrationMatcherRetryInterval;
 
   public void setRegistrationMatcherRetryInterval(final int registrationMatcherRetryInterval) {

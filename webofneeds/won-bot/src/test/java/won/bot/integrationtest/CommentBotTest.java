@@ -66,7 +66,7 @@ import won.protocol.vocabulary.WON;
 @ContextConfiguration(locations = { "classpath:/spring/app/simpleCommentTest.xml" })
 public class CommentBotTest {
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    private static final int RUN_ONCE = 1;
+    // private static final int RUN_ONCE = 1;
     private static final long ACT_LOOP_TIMEOUT_MILLIS = 100;
     private static final long ACT_LOOP_INITIAL_DELAY_MILLIS = 100;
 
@@ -213,7 +213,7 @@ public class CommentBotTest {
             LinkedDataSource linkedDataSource = getEventListenerContext().getLinkedDataSource();
 
             List<URI> properties = new ArrayList<>();
-            List<URI> objects = new ArrayList<>();
+            // List<URI> objects = new ArrayList<>();
 
             properties.add(URI.create(WON.HAS_CONNECTIONS.getURI()));
             // properties.add(RDF.type);
@@ -221,7 +221,7 @@ public class CommentBotTest {
             properties.add(URI.create(WON.HAS_REMOTE_NEED.toString()));
             properties.add(URI.create(RDFS.member.toString()));
 
-            List<URI> crawled = new ArrayList<>();
+            // List<URI> crawled = new ArrayList<>();
 
             ((CachingLinkedDataSource) linkedDataSource).clear();
 
@@ -254,7 +254,7 @@ public class CommentBotTest {
             for (; results.hasNext();) {
                 QuerySolution soln = results.nextSolution();
                 actualList.add(soln.toString());
-                RDFNode node = soln.get("?connection");
+                // RDFNode node = soln.get("?connection");
             }
             Assert.assertEquals("wrong number of results", 1.0d, actualList.size(), 1 - actualList.size());
             qExec.close();
@@ -312,7 +312,7 @@ public class CommentBotTest {
                     + "?need won:hasConnections ?connections." + "?connections rdfs:member ?connection."
                     + "?connection won:hasConnectionState ?state." + "}";
             logger.debug(RdfUtils.toString(needModel));
-            Dataset dataset = null;
+            // Dataset dataset = null;
             // Query query = queryString.asQuery();
             // QueryExecution qExec = QueryExecutionFactory.create(query, dataset);
             Query query = QueryFactory.create(queryString);

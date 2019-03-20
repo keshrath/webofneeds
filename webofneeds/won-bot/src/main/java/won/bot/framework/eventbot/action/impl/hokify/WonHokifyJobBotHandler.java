@@ -19,35 +19,40 @@ import won.bot.framework.eventbot.bus.EventBus;
  * 
  * @author MS
  * 
- * Handle messagest and requests to hokify in the future
+ *         Handle messagest and requests to hokify in the future
  *
  */
 public class WonHokifyJobBotHandler implements ICommandRegistry {
-    private String token;
-    private String botName;
-    private EventBus bus;
+    // private String token;
+    // private String botName;
+    // private EventBus bus;
 
     private CommandRegistry commandRegistry;
 
     private HokifyMessageGenerator hokifyMessageGenerator;
 
-    public WonHokifyJobBotHandler(EventBus bus, HokifyMessageGenerator hokifyMessageGenerator, String botName, String token) {
-        this.bus = bus;
-        this.token = token;
-        this.botName = botName;
+    public WonHokifyJobBotHandler(EventBus bus, HokifyMessageGenerator hokifyMessageGenerator, String botName,
+            String token) {
+        // this.bus = bus;
+        // this.token = token;
+        // this.botName = botName;
         this.hokifyMessageGenerator = hokifyMessageGenerator;
 
         this.commandRegistry = new CommandRegistry(true, botName);
 
-      //BotCommand offerBotCommand = new OfferBotCommand("offer", "create a offer need", bus);
-        //BotCommand demandBotCommand = new DemandBotCommand("demand", "create a demand need", bus);
-        //BotCommand critiqueBotCommand = new CritiqueBotCommand("critique", "create a critique need", bus);
-        //BotCommand togetherBotCommand = new TogetherBotCommand("together", "create a together need", bus);
+        // BotCommand offerBotCommand = new OfferBotCommand("offer", "create a offer
+        // need", bus);
+        // BotCommand demandBotCommand = new DemandBotCommand("demand", "create a demand
+        // need", bus);
+        // BotCommand critiqueBotCommand = new CritiqueBotCommand("critique", "create a
+        // critique need", bus);
+        // BotCommand togetherBotCommand = new TogetherBotCommand("together", "create a
+        // together need", bus);
         BotCommand helpBotCommand = new HelpBotCommand("help", "list help", bus);
-        //commandRegistry.registerAll(helpBotCommand, offerBotCommand, demandBotCommand, critiqueBotCommand, togetherBotCommand);
+        // commandRegistry.registerAll(helpBotCommand, offerBotCommand,
+        // demandBotCommand, critiqueBotCommand, togetherBotCommand);
         commandRegistry.registerAll(helpBotCommand);
     }
-
 
     public CommandRegistry getCommandRegistry() {
         return commandRegistry;
@@ -63,7 +68,7 @@ public class WonHokifyJobBotHandler implements ICommandRegistry {
 
     @Override
     public void registerDefaultAction(BiConsumer<AbsSender, Message> biConsumer) {
-        BotCommand helpBotCommand = new HelpBotCommand("help", "list help", bus);
+        // BotCommand helpBotCommand = new HelpBotCommand("help", "list help", bus);
     }
 
     @Override
@@ -95,7 +100,6 @@ public class WonHokifyJobBotHandler implements ICommandRegistry {
     public BotCommand getRegisteredCommand(String s) {
         return commandRegistry.getRegisteredCommand(s);
     }
-
 
     public Message sendMessage(SendMessage connectMessage) {
         // TODO Auto-generated method stub

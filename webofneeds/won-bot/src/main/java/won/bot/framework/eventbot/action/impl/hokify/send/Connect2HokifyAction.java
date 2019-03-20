@@ -42,7 +42,7 @@ public class Connect2HokifyAction extends BaseEventBotAction {
             Connection con = ((ConnectFromOtherNeedEvent) event).getCon();
 
             URI yourNeedUri = con.getNeedURI();
-            URI remoteNeedUri = con.getRemoteNeedURI();
+            // URI remoteNeedUri = con.getRemoteNeedURI();
 
             try {
                 String message = "Hello!\n I found this job offer on " + "https://hokify.at";

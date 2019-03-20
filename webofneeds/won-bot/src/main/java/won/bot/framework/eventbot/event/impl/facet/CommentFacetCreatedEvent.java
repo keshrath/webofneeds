@@ -21,18 +21,16 @@ import java.net.URI;
 import org.apache.jena.rdf.model.Model;
 
 import won.bot.framework.eventbot.event.BaseEvent;
-import won.protocol.model.FacetType;
+// import won.protocol.model.FacetType;
 
 /**
- * User: LEIH-NB
- * Date: 05.02.14
+ * User: LEIH-NB Date: 05.02.14
  */
-public class CommentFacetCreatedEvent extends BaseEvent
-{
+public class CommentFacetCreatedEvent extends BaseEvent {
     private URI commentFacetURI;
     private URI wonNodeURI;
     private Model model;
-    private final FacetType facetType = FacetType.CommentFacet;
+    // private final FacetType facetType = FacetType.CommentFacet;
 
     public CommentFacetCreatedEvent(URI groupFacetURI, URI wonNodeURI, Model model) {
         this.commentFacetURI = groupFacetURI;
@@ -53,7 +51,4 @@ public class CommentFacetCreatedEvent extends BaseEvent
         return model;
     }
 
-
 }
-
-
