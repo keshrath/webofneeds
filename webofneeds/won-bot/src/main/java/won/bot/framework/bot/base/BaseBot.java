@@ -64,7 +64,7 @@ public abstract class BaseBot implements Bot
     try {
       botContextWrapper.getBotContext().saveToObjectMap("temp", "temp", "temp");
       Object o = botContextWrapper.getBotContext().loadFromObjectMap("temp", "temp");
-      Assert.isTrue(o.equals("temp"));
+      Assert.isTrue(o.equals("temp"), "Bot cannot establish connection with bot context");
     } catch (Exception e) {
       logger.error("Bot cannot establish connection with bot context");
       throw e;
