@@ -377,7 +377,7 @@ public class DebugBotIncomingMessageToEventMappingAction extends BaseEventBotAct
 							: true && useWrongSender ? m.getSenderNeedURI().equals(con.getRemoteNeedURI())
 									: m.getSenderNeedURI().equals(con.getNeedURI()),
 							0);
-					return uri == null ? Collections.EMPTY_LIST : Arrays.asList(uri);
+					return uri == null ? Collections.emptyList() : Arrays.asList(uri);
 				}, (messageModel, uris) -> WonRdfUtils.MessageUtils.addRetracts(messageModel, uris),
 				(Duration queryDuration, AgreementProtocolState state, URI... uris) -> {
 					if (uris == null || uris.length == 0 || uris[0] == null) {
@@ -400,7 +400,7 @@ public class DebugBotIncomingMessageToEventMappingAction extends BaseEventBotAct
 				state -> {
 					URI uri = state.getLatestProposesOrClaimsMessageSentByNeed(
 							useWrongSender ? con.getNeedURI() : con.getRemoteNeedURI());
-					return uri == null ? Collections.EMPTY_LIST : Arrays.asList(uri);
+					return uri == null ? Collections.emptyList() : Arrays.asList(uri);
 				}, (messageModel, uris) -> WonRdfUtils.MessageUtils.addRejects(messageModel, uris),
 				(Duration queryDuration, AgreementProtocolState state, URI... uris) -> {
 					if (uris == null || uris.length == 0 || uris[0] == null) {
@@ -485,7 +485,7 @@ public class DebugBotIncomingMessageToEventMappingAction extends BaseEventBotAct
 				state -> {
 					URI uri = state.getLatestPendingProposalOrClaim(Optional.empty(),
 							Optional.of(con.getRemoteNeedURI()));
-					return uri == null ? Collections.EMPTY_LIST : Arrays.asList(uri);
+					return uri == null ? Collections.emptyList() : Arrays.asList(uri);
 				}, (messageModel, uris) -> WonRdfUtils.MessageUtils.addAccepts(messageModel, uris),
 				(Duration queryDuration, AgreementProtocolState state, URI... uris) -> {
 					if (uris == null || uris.length == 0 || uris[0] == null) {
@@ -501,7 +501,7 @@ public class DebugBotIncomingMessageToEventMappingAction extends BaseEventBotAct
 				"ok, I'll propose to cancel our latest agreement - but I'll need to crawl the connection data first, please be patient.",
 				state -> {
 					URI uri = state.getLatestAgreement();
-					return uri == null ? Collections.EMPTY_LIST : Arrays.asList(uri);
+					return uri == null ? Collections.emptyList() : Arrays.asList(uri);
 				}, (messageModel, uris) -> WonRdfUtils.MessageUtils.addProposesToCancel(messageModel, uris),
 				(Duration queryDuration, AgreementProtocolState state, URI... uris) -> {
 					if (uris == null || uris.length == 0 || uris[0] == null || state == null) {

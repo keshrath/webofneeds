@@ -109,9 +109,10 @@ public class CrawlConnectionDataBehaviour extends BotBehaviour {
         pmap.setNsPrefix("msg", WONMSG.getURI());
         propertyPaths.add(PathParser.parse("won:hasEventContainer", pmap));
         propertyPaths.add(PathParser.parse("won:hasEventContainer/rdfs:member", pmap));
-        CrawlCommandEvent crawlNeedCommandEvent = new CrawlCommandEvent(command.getNeedURI(), command.getNeedURI(), propertyPaths, 10000, 5);
+        CrawlCommandEvent crawlNeedCommandEvent = new CrawlCommandEvent(command.getNeedURI(), command.getNeedURI(),
+                propertyPaths, 10000, 5);
 
-        propertyPaths = new ArrayList();
+        propertyPaths = new ArrayList<Path>();
         propertyPaths.add(PathParser.parse("won:hasEventContainer", pmap));
         propertyPaths.add(PathParser.parse("won:hasEventContainer/rdfs:member", pmap));
         propertyPaths.add(PathParser.parse("won:hasEventContainer/rdfs:member/msg:hasCorrespondingRemoteMessage", pmap));

@@ -13,14 +13,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * In memory context implementation using nested maps. This is the default implementation of the bot context.
+ * In memory context implementation using nested maps. This is the default
+ * implementation of the bot context.
  */
 public class MemoryBotContext implements BotContext {
     private Map<String, Map<String, Object>> contextObjectMap = new HashMap<>();
     private Map<String, Map<String, List<Object>>> contextListMap = new HashMap<>();
 
     private Set<URI> nodeUris = new HashSet<>();
-    private Map<String, List<URI>> namedNeedUriLists = new HashMap();
+    private Map<String, List<URI>> namedNeedUriLists = new HashMap<String, List<URI>>();
 
     @Override
     public Set<URI> retrieveAllNeedUris() {
@@ -45,7 +46,7 @@ public class MemoryBotContext implements BotContext {
 
         List<URI> uris = this.namedNeedUriLists.get(name);
         if (uris == null) {
-            uris = new ArrayList();
+            uris = new ArrayList<URI>();
         }
         uris.add(uri);
         this.namedNeedUriLists.put(name, uris);
@@ -79,7 +80,6 @@ public class MemoryBotContext implements BotContext {
     public synchronized boolean isNodeKnown(final URI wonNodeURI) {
         return nodeUris.contains(wonNodeURI);
     }
-
 
     @Override
     public synchronized void rememberNodeUri(final URI uri) {
@@ -158,7 +158,7 @@ public class MemoryBotContext implements BotContext {
 
     @Override
     public void removeLeavesFromListMap(String collectionName, final Serializable... values) {
-        for(String key : getListMap(collectionName).keySet()){
+        for (String key : getListMap(collectionName).keySet()) {
             removeFromListMap(collectionName, key, values);
         }
     }
