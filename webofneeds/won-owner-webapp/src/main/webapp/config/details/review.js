@@ -55,7 +55,7 @@ export const review = {
           "s:ratingValue": { "@value": value.rating, "@type": "xsd:int" },
           "s:worstRating": { "@value": 1, "@type": "xsd:int" }, //not necessary but possible
         },
-        "s:description": value.text,
+        "s:reviewBody": value.text,
       },
     };
   },

@@ -238,7 +238,7 @@ export function reviewPersona(reviewableConnectionUri, review) {
           "s:ratingValue": { "@value": review.value, "@type": "xsd:int" },
           "s:worstRating": { "@value": 1, "@type": "xsd:int" }, //not necessary but possible
         },
-        "s:description": review.message,
+        "s:reviewBody": review.message,
       },
     };
 

@@ -58,6 +58,7 @@ public class SCHEMA {
     public static final Property ABOUT = m.createProperty(BASE_URI + "about");
     public static final Property AUTHOR = m.createProperty(BASE_URI + "author");
     public static final Property REVIEW_RATING = m.createProperty(BASE_URI + "reviewRating");
+    public static final Property REVIEW_BODY = m.createProperty(BASE_URI + "reviewBody");
     
     public static final Property AGGREGATE_RATING = m.createProperty(BASE_URI + "aggregateRating");
     public static final Property REVIEW_COUNT = m.createProperty(BASE_URI + "reviewCount");

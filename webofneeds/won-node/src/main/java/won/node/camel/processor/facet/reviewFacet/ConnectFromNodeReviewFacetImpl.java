@@ -54,6 +54,8 @@ public class ConnectFromNodeReviewFacetImpl extends AbstractCamelProcessor {
                 ? Double.parseDouble(reviewData.get(SCHEMA.RATING_VALUE))
                 : 0.0;
 
+        String reviewBody = reviewData.get(SCHEMA.REVIEW_BODY) != null ? reviewData.get(SCHEMA.REVIEW_BODY) : "Review without text";
+                
         Need aboutNeed = needRepository.findOneByNeedURI(URI.create(aboutNeedURI));
         Dataset needDataset = aboutNeed.getDatatsetHolder().getDataset();
         Model derivationModel = needDataset.getNamedModel(aboutNeed.getNeedURI() + "#derivedData");
@@ -78,6 +80,12 @@ public class ConnectFromNodeReviewFacetImpl extends AbstractCamelProcessor {
         if (aggregateRatingProperty == null) {
             derivationModel.addLiteral(aboutNeedResource, SCHEMA.AGGREGATE_RATING, rating);
             aggregateRatingProperty = derivationModel.getProperty(aboutNeedResource, SCHEMA.AGGREGATE_RATING);
+        }
+        
+        Statement reviewBodyProperty = derivationModel.getProperty(aboutNeedResource, SCHEMA.REVIEW_BODY);
+        if (aggregateRatingProperty == null) {
+            derivationModel.addLiteral(aboutNeedResource, SCHEMA.REVIEW_BODY, "");
+            reviewBodyProperty = derivationModel.getProperty(aboutNeedResource, SCHEMA.REVIEW_BODY);
         }
 
         int ratingCount = 0;
