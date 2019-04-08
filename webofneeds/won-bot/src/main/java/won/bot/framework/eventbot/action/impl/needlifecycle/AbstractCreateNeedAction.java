@@ -103,5 +103,4 @@ public abstract class AbstractCreateNeedAction extends BaseEventBotAction {
     public void setDoNotMatch(final boolean doNotMatch) {
         this.doNotMatch = doNotMatch;
     }
-
 }
