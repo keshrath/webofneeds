@@ -1,0 +1,3 @@
+# On testing with Petri Nets
+
+The test in this folder use base64 encoded xml files used by [PIPE](https://github.com/sarahtattersall/PIPE). in order to get these into conversation messages, edit the xml to your needs and convert the file to base64, then paste that string into the literal value wf:hasInlinePetriNetDefinition in the conversation trig file. Of course, the checksums won't be correct, but for higher-level tests this does not matter.  
