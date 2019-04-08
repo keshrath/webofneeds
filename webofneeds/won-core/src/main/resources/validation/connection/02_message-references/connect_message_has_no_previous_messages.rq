@@ -1,5 +1,5 @@
 # The `Create` message of a need must not contain a reference
-prefix msg: <http://purl.org/webofneeds/message#>
+prefix msg: <https://w3id.org/won/message#>
 select ?msg where {
   ?msg msg:hasMessageType msg:CreateMessage;
 	   msg:hasPreviousMessage ?msg.

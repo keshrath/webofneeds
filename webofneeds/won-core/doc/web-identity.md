@@ -23,13 +23,13 @@ Below is an example of part of a Need resource description in TRIG format:
 
 
 ```
-@prefix woncrypt: <http://purl.org/webofneeds/woncrypt#> .
+@prefix woncrypt: <https://w3id.org/won/woncrypt#> .
 @prefix need:  <https://localhost:8443/won/resource/need/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix cert:  <http://www.w3.org/ns/auth/cert#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix won:   <http://purl.org/webofneeds/model#> .
+@prefix won:   <https://w3id.org/won/model#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
@@ -63,11 +63,11 @@ vocabulary created by us within the WoN project: we use Elliptic Curves (EC) for
 no public Ontology for representing Elliptic Curve data in RDF. The Certificate Ontology only covers representation 
 of the RSA Public Key. 
 
-We use Class <http://purl.org/webofneeds/woncrypt#ECCPublicKey> to define the type of the key, and use properties
-* <http://purl.org/webofneeds/woncrypt#ecc_algorithm>
-* <http://purl.org/webofneeds/woncrypt#curveId>
-* <http://purl.org/webofneeds/woncrypt#ecc_qx>
-* <http://purl.org/webofneeds/woncrypt#ecc_qy>
+We use Class <https://w3id.org/won/woncrypt#ECCPublicKey> to define the type of the key, and use properties
+* <https://w3id.org/won/woncrypt#ecc_algorithm>
+* <https://w3id.org/won/woncrypt#curveId>
+* <https://w3id.org/won/woncrypt#ecc_qx>
+* <https://w3id.org/won/woncrypt#ecc_qy>
 
 to define the public key itself. This information is sufficient to be able to reconstruct EC public key with any 
 common cryptographic library and apply it for signature validation or encryption. We use 

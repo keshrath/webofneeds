@@ -1,6 +1,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix won: <http://purl.org/webofneeds/model#> .
+@prefix won: <https://w3id.org/won/model#> .
 @prefix oslc: <http://open-services.net/ns/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/>
 @prefix travel: <http://example.org/travel#> .
@@ -11,7 +11,7 @@ ex:Need1
 	won:hasContent ex:Need1_Content1 ;
 	won:hasMatchingConstraint ex:Need1_Constraint1.
 	
-ex:Need1_Content1 won:hasTextDescription "Ich suche nach einer Mitfahrgelegenheit Wien - Salzburg für 2 Personen. Wär toll wenn sich jemand finden würde. (irgendwann zwischen Fr-So) Bitte, bitte wenn jemand diese Strecke fährt, bei mir melden :-) Dankeschön.. LG"^^xsd:string
+ex:Need1_Content1 won:hasTextDescription "Ich suche nach einer Mitfahrgelegenheit Wien - Salzburg fï¿½r 2 Personen. Wï¿½r toll wenn sich jemand finden wï¿½rde. (irgendwann zwischen Fr-So) Bitte, bitte wenn jemand diese Strecke fï¿½hrt, bei mir melden :-) Dankeschï¿½n.. LG"^^xsd:string
 
 ex:Need1_Constraint1 
 	a oslc:ResourceShape ;

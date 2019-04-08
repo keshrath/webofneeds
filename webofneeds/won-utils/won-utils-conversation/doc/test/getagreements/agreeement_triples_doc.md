@@ -56,11 +56,11 @@
 ```
 <https://localhost:8443/won/resource/event/cgqt5h004iql2003me2n> {
     <https://localhost:8443/won/resource/event/6149800720990867000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "Hello, debugbot!" .
 }
 ```
@@ -102,7 +102,7 @@
 ```
 <https://localhost:8443/won/resource/event/ow321nn1va6clfidc4s0> {
     <https://localhost:8443/won/resource/event/5669098069340991000>
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasTextMessage>
                     "one" .
 }
 ```
@@ -144,7 +144,7 @@
 ```
 <https://localhost:8443/won/resource/event/ow321nn1va6clfidc4s0> {
     <https://localhost:8443/won/resource/event/5669098069340991000>
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasTextMessage>
                     "one" .
 }
 ```
@@ -236,11 +236,11 @@
 ```
 <https://localhost:8443/won/resource/event/cbcccoqqqbec6bxkl3y3> {
     <https://localhost:8443/won/resource/event/6149800720990867000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "Hello, debugbot!" .
 }
 
@@ -297,11 +297,11 @@
 ```
 <https://localhost:8443/won/resource/event/cbcccoqqqbec6bxkl3y3> {
     <https://localhost:8443/won/resource/event/6149800720990867000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "Hello, debugbot!" .
 }
 

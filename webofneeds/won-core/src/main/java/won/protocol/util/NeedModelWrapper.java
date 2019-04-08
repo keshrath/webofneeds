@@ -572,8 +572,8 @@ public class NeedModelWrapper {
     public Collection<Resource> getGoalNodes() {
         Collection<Resource> contentNodes = new LinkedList<>();
         String queryClause = "{ ?needNode a won:Need. ?needNode won:goal ?contentNode. }";
-        String queryString = "prefix won: <http://purl.org/webofneeds/model#> \n"
-                        + "SELECT DISTINCT ?contentNode WHERE { \n" + queryClause + "\n }";
+        String queryString = "prefix won: <https://w3id.org/won/model#> \n" + "SELECT DISTINCT ?contentNode WHERE { \n"
+                        + queryClause + "\n }";
         Query query = QueryFactory.create(queryString);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, getNeedModel())) {
             ResultSet rs = qexec.execSelect();
@@ -596,8 +596,8 @@ public class NeedModelWrapper {
     public Collection<Resource> getSeeksNodes() {
         Collection<Resource> contentNodes = new LinkedList<>();
         String queryClause = "{ ?needNode a won:Need. ?needNode won:seeks ?contentNode. FILTER NOT EXISTS { ?needNode won:seeks/won:seeks ?contentNode. } }";
-        String queryString = "prefix won: <http://purl.org/webofneeds/model#> \n"
-                        + "SELECT DISTINCT ?contentNode WHERE { \n" + queryClause + "\n }";
+        String queryString = "prefix won: <https://w3id.org/won/model#> \n" + "SELECT DISTINCT ?contentNode WHERE { \n"
+                        + queryClause + "\n }";
         Query query = QueryFactory.create(queryString);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, getNeedModel())) {
             ResultSet rs = qexec.execSelect();
@@ -623,8 +623,8 @@ public class NeedModelWrapper {
         String seeksClause = "{ ?needNode a won:Need. ?needNode won:seeks ?contentNode. FILTER NOT EXISTS { ?needNode won:seeks/won:seeks ?contentNode. } }";
         String seeksSeeksClause = "{ ?needNode a won:Need. ?needNode won:seeks/won:seeks ?contentNode. }";
         queryClause = seeksClause + "UNION \n" + seeksSeeksClause;
-        String queryString = "prefix won: <http://purl.org/webofneeds/model#> \n"
-                        + "SELECT DISTINCT ?contentNode WHERE { \n" + queryClause + "\n }";
+        String queryString = "prefix won: <https://w3id.org/won/model#> \n" + "SELECT DISTINCT ?contentNode WHERE { \n"
+                        + queryClause + "\n }";
         Query query = QueryFactory.create(queryString);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, getNeedModel())) {
             ResultSet rs = qexec.execSelect();
@@ -650,8 +650,8 @@ public class NeedModelWrapper {
         String queryClause = null;
         String seeksSeeksClause = "{ ?needNode a won:Need. ?needNode won:seeks/won:seeks ?contentNode. }";
         queryClause = seeksSeeksClause;
-        String queryString = "prefix won: <http://purl.org/webofneeds/model#> \n"
-                        + "SELECT DISTINCT ?contentNode WHERE { \n" + queryClause + "\n }";
+        String queryString = "prefix won: <https://w3id.org/won/model#> \n" + "SELECT DISTINCT ?contentNode WHERE { \n"
+                        + queryClause + "\n }";
         Query query = QueryFactory.create(queryString);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, getNeedModel())) {
             ResultSet rs = qexec.execSelect();

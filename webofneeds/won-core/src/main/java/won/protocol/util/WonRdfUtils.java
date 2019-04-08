@@ -457,10 +457,9 @@ public class WonRdfUtils {
             URI messageURI = wonMessage.getMessageURI();
             // find the text message in the message, the remote message, or any forwarded
             // message
-            String queryString = "prefix msg: <http://purl.org/webofneeds/message#>\n"
-                            + "prefix won: <http://purl.org/webofneeds/model#>\n" + "\n"
-                            + "SELECT distinct ?txt WHERE {\n" + "  {\n"
-                            + "    graph ?gA { ?msg won:hasTextMessage ?txt }\n" + "  } union {\n"
+            String queryString = "prefix msg: <https://w3id.org/won/message#>\n"
+                            + "prefix won: <https://w3id.org/won/model#>\n" + "\n" + "SELECT distinct ?txt WHERE {\n"
+                            + "  {\n" + "    graph ?gA { ?msg won:hasTextMessage ?txt }\n" + "  } union {\n"
                             + "    graph ?gB { ?msg msg:hasCorrespondingRemoteMessage ?msg2 }\n"
                             + "    graph ?gA { ?msg2 won:hasTextMessage ?txt }\n" + "  } union {\n"
                             + "    graph ?gC { ?msg msg:hasForwardedMessage ?msg2 }\n"
@@ -515,8 +514,8 @@ public class WonRdfUtils {
 
         public static List<URI> getAcceptedEvents(final Dataset messageDataset) {
             List<URI> acceptedEvents = new ArrayList<>();
-            String queryString = "prefix msg:   <http://purl.org/webofneeds/message#>\n"
-                            + "prefix agr:   <http://purl.org/webofneeds/agreement#>\n" + "SELECT ?eventUri where {\n"
+            String queryString = "prefix msg:   <https://w3id.org/won/message#>\n"
+                            + "prefix agr:   <https://w3id.org/won/agreement#>\n" + "SELECT ?eventUri where {\n"
                             + " graph ?g {" + "  ?s agr:accepts ?eventUri .\n" + "}}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution qexec = QueryExecutionFactory.create(query, messageDataset)) {
@@ -534,9 +533,9 @@ public class WonRdfUtils {
         }
 
         public static boolean isProcessingMessage(final WonMessage wonMessage) {
-            String queryString = "prefix msg:   <http://purl.org/webofneeds/message#>\n"
-                            + "prefix won:   <http://purl.org/webofneeds/model#>\n" + "SELECT ?text where {\n"
-                            + " graph ?g {" + "  ?s won:isProcessing ?text .\n" + "}}";
+            String queryString = "prefix msg:   <https://w3id.org/won/message#>\n"
+                            + "prefix won:   <https://w3id.org/won/model#>\n" + "SELECT ?text where {\n" + " graph ?g {"
+                            + "  ?s won:isProcessing ?text .\n" + "}}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution qexec = QueryExecutionFactory.create(query, wonMessage.getCompleteDataset())) {
                 qexec.getContext().set(TDB.symUnionDefaultGraph, true);
@@ -570,8 +569,8 @@ public class WonRdfUtils {
 
         public static List<URI> getProposesEvents(final Dataset messageDataset) {
             List<URI> proposesToCancelEvents = new ArrayList<>();
-            String queryString = "prefix msg:   <http://purl.org/webofneeds/message#>\n"
-                            + "prefix agr:   <http://purl.org/webofneeds/agreement#>\n" + "SELECT ?eventUri where {\n"
+            String queryString = "prefix msg:   <https://w3id.org/won/message#>\n"
+                            + "prefix agr:   <https://w3id.org/won/agreement#>\n" + "SELECT ?eventUri where {\n"
                             + " graph ?g {" + "  ?s agr:proposes ?eventUri .\n" + "}}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution qexec = QueryExecutionFactory.create(query, messageDataset)) {
@@ -594,8 +593,8 @@ public class WonRdfUtils {
 
         public static List<URI> getProposesToCancelEvents(final Dataset messageDataset) {
             List<URI> proposesToCancelEvents = new ArrayList<>();
-            String queryString = "prefix msg:   <http://purl.org/webofneeds/message#>\n"
-                            + "prefix agr:   <http://purl.org/webofneeds/agreement#>\n" + "SELECT ?eventUri where {\n"
+            String queryString = "prefix msg:   <https://w3id.org/won/message#>\n"
+                            + "prefix agr:   <https://w3id.org/won/agreement#>\n" + "SELECT ?eventUri where {\n"
                             + " graph ?g {" + "  ?s agr:proposesToCancel ?eventUri .\n" + "}}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution qexec = QueryExecutionFactory.create(query, messageDataset)) {
@@ -620,10 +619,9 @@ public class WonRdfUtils {
          */
         public static List<URI> getPreviousMessageUrisIncludingRemote(final WonMessage wonMessage) {
             List<URI> uris = new ArrayList<>();
-            String queryString = "prefix msg:   <http://purl.org/webofneeds/message#>\n"
-                            + "prefix agr:   <http://purl.org/webofneeds/agreement#>\n"
-                            + "SELECT distinct ?prev where {\n" + "   {" + "    ?msg msg:hasPreviousMessage ?prev .\n"
-                            + "   } union {"
+            String queryString = "prefix msg:   <https://w3id.org/won/message#>\n"
+                            + "prefix agr:   <https://w3id.org/won/agreement#>\n" + "SELECT distinct ?prev where {\n"
+                            + "   {" + "    ?msg msg:hasPreviousMessage ?prev .\n" + "   } union {"
                             + "    ?msg msg:hasCorrespondingRemoteMessage/msg:hasPreviousMessage ?prev " + "  }" + "}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution qexec = QueryExecutionFactory.create(query, wonMessage.getCompleteDataset())) {
@@ -1158,14 +1156,14 @@ public class WonRdfUtils {
             Optional<Object> unions = remoteNeeds.stream().map(uri -> {
                 BasicPattern pattern = new BasicPattern();
                 pattern.add(Triple.create(Var.alloc("localCon"),
-                                NodeFactory.createURI("http://purl.org/webofneeds/model#hasRemoteNeed"),
+                                NodeFactory.createURI("https://w3id.org/won/model#hasRemoteNeed"),
                                 NodeFactory.createURI(uri.toString())));
                 pattern.add(Triple.create(Var.alloc("localCon"),
-                                NodeFactory.createURI("http://purl.org/webofneeds/model#hasRemoteConnection"),
+                                NodeFactory.createURI("https://w3id.org/won/model#hasRemoteConnection"),
                                 Var.alloc("remoteCon")));
                 if (state.isPresent()) {
                     pattern.add(Triple.create(Var.alloc("localCon"),
-                                    NodeFactory.createURI("http://purl.org/webofneeds/model#hasConnectionState"),
+                                    NodeFactory.createURI("https://w3id.org/won/model#hasConnectionState"),
                                     NodeFactory.createURI(state.get().getURI().toString())));
                 }
                 return pattern;

@@ -561,7 +561,7 @@ export function filterPrice(rootSubject, rent, currency, sparqlVarPrefix) {
  * @returns {String} in the form of e.g.
  * ```
  * prefix s: <http://schema.org/>
- * prefix won: <http://purl.org/webofneeds/model#>
+ * prefix won: <https://w3id.org/won/model#>
  * ```
  */
 export function prefixesString(prefixes) {
@@ -581,7 +581,7 @@ function isSparqlVariable(str) {
 //TODO should return a context-def as well
 
 export function generateWhatsAroundQuery(latitude, longitude) {
-  return `PREFIX won: <http://purl.org/webofneeds/model#>
+  return `PREFIX won: <https://w3id.org/won/model#>
       PREFIX s: <http://schema.org/>
       PREFIX geo: <http://www.bigdata.com/rdf/geospatial#>
       PREFIX geoliteral: <http://www.bigdata.com/rdf/geospatial/literals/v1#>
@@ -607,7 +607,7 @@ export function generateWhatsAroundQuery(latitude, longitude) {
 }
 
 export function generateWhatsNewQuery() {
-  return `PREFIX won: <http://purl.org/webofneeds/model#>
+  return `PREFIX won: <https://w3id.org/won/model#>
         PREFIX s: <http://schema.org/>
         PREFIX dct: <http://purl.org/dc/terms/>
         SELECT DISTINCT ?result ((YEAR(?created) - 1970) * 40000000

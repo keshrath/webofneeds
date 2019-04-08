@@ -303,14 +303,14 @@ public class SparqlMatcherActor extends UntypedActor {
         String needURI = need.getNeedUri();
         ArrayList<Op> queries = new ArrayList<>(3);
         Statement seeks = model.getProperty(model.createResource(needURI),
-                        model.createProperty("http://purl.org/webofneeds/model#seeks"));
+                        model.createProperty("https://w3id.org/won/model#seeks"));
         if (seeks != null) {
             Op seeksQuery = createNeedQuery(model, seeks);
             if (seeksQuery != null)
                 queries.add(seeksQuery);
         }
         Statement search = model.getProperty(model.createResource(needURI),
-                        model.createProperty("http://purl.org/webofneeds/model#hasSearchString"));
+                        model.createProperty("https://w3id.org/won/model#hasSearchString"));
         if (search != null) {
             String searchString = search.getString();
             queries.add(SparqlMatcherUtils.createSearchQuery(searchString, resultName, 2, true, true));
@@ -459,7 +459,7 @@ public class SparqlMatcherActor extends UntypedActor {
     private static Set<String> getMatchingContexts(NeedModelWrapper need) {
         Model model = need.getNeedModel();
         Resource needURI = model.createResource(need.getNeedUri());
-        Property matchingContextProperty = model.createProperty("http://purl.org/webofneeds/model#hasMatchingContext");
+        Property matchingContextProperty = model.createProperty("https://w3id.org/won/model#hasMatchingContext");
         Stream<RDFNode> stream = StreamSupport.stream(Spliterators.spliteratorUnknownSize(
                         model.listObjectsOfProperty(needURI, matchingContextProperty), Spliterator.CONCURRENT), false);
         return stream.map(node -> node.asLiteral().getString()).collect(Collectors.toSet());

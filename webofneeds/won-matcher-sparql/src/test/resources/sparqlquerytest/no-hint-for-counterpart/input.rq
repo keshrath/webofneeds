@@ -1,4 +1,4 @@
-PREFIX won: <http://purl.org/webofneeds/model#>
+PREFIX won: <https://w3id.org/won/model#>
 PREFIX s: <http://schema.org/>
 PREFIX dct: <http://purl.org/dc/terms/>
 SELECT ?result ?score WHERE {

@@ -26,7 +26,7 @@ var jsontest ={
         "@id" : "urn:x-arq:DefaultGraphNode"
     } ],
     "@context" : {
-        "msg" : "http://purl.org/webofneeds/message#"
+        "msg" : "https://w3id.org/won/message#"
     }
 }
 
@@ -40,11 +40,11 @@ function testRdf() {
     }, 'https://www.example.com/john/card');
     storePromise.then(function() {
         console.log("testing match");
-        var matchPromise = store.match("abcd:xyz", null, "http://purl.org/webofneeds/message#hasReceiverNeed", null, null);
+        var matchPromise = store.match("abcd:xyz", null, "https://w3id.org/won/message#hasReceiverNeed", null, null);
     });*/
     var store = new rdfstore.Store();
     store.setPrefix("ex", "http://example.org/people/");
-    store.setPrefix("msg","http://purl.org/webofneeds/message#");
+    store.setPrefix("msg","https://w3id.org/won/message#");
 
     store.load("application/ld+json", jsontest, "ex:test", function(success, results) {
         console.log("success:" + success + ", results: " + results);
@@ -53,7 +53,7 @@ function testRdf() {
     store.graph("ex:test", function(success, mygraph) {
         // process graph here
         //var triples = [];
-        //var triples = mygraph.match("ex:test", null, "http://purl.org/webofneeds/message#hasReceiverNeed", null, null);
+        //var triples = mygraph.match("ex:test", null, "https://w3id.org/won/message#hasReceiverNeed", null, null);
 
         for (var i = 0; i < mygraph.triples.length; i++) {
             console.log("triple:" + mygraph.triples[i]);
@@ -67,7 +67,7 @@ function testRdf() {
     store.node("http://example.com/responseMessage/837ddj#data","ex:test", function(success, mygraph) {
         // process graph here
         //var triples = [];
-        //var triples = mygraph.match("ex:test", null, "http://purl.org/webofneeds/message#hasReceiverNeed", null, null);
+        //var triples = mygraph.match("ex:test", null, "https://w3id.org/won/message#hasReceiverNeed", null, null);
 
         for (var i = 0; i < mygraph.triples.length; i++) {
             console.log("triple:" + mygraph.triples[i]);

@@ -1,4 +1,4 @@
-prefix won: <http://purl.org/webofneeds/model#>
+prefix won: <https://w3id.org/won/model#>
 prefix rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT DISTINCT ?slice ?need ?value WHERE { # value is the remote need

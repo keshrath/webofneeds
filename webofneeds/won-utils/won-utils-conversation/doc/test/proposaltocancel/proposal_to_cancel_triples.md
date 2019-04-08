@@ -36,10 +36,10 @@
 ```
 <https://localhost:8443/won/resource/event/1435888415723958200> {
     <https://localhost:8443/won/resource/event/ow321nn1va6clfidc4s0>
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasTextMessage>
                     "Please go on." .
         <https://localhost:8443/won/resource/event/ow321nn1va6clfidc4s0>
-                <http://purl.org/webofneeds/agreement#accepts>
+                <https://w3id.org/won/agreement#accepts>
                     <https://localhost:8443/won/resource/event/557600936467257340> .
 }
 ```
@@ -228,16 +228,16 @@
 ```
 <https://localhost:8443/won/resource/event/cgqt5h004iql2003me2n> {
     <https://localhost:8443/won/resource/event/152dum7y56zn95qyernf>
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasTextMessage>
                     "I'm not sure I understand you fully." .
         <https://localhost:8443/won/resource/event/152dum7y56zn95qyernf>
-                <http://purl.org/webofneeds/agreement#accepts>
+                <https://w3id.org/won/agreement#accepts>
                     <https://localhost:8443/won/resource/event/1107469913331435500> .
         <https://localhost:8443/won/resource/event/4846251213444807000>
-             <http://purl.org/webofneeds/model#hasTextMessage>
+             <https://w3id.org/won/model#hasTextMessage>
                        "one" .
                 <https://localhost:8443/won/resource/event/4846251213444807000>
-                       <http://purl.org/webofneeds/agreement#accepts>
+                       <https://w3id.org/won/agreement#accepts>
                           <https://localhost:8443/won/resource/event/cbcccoqqqbec6bxkl3y3> .
 }
 ```

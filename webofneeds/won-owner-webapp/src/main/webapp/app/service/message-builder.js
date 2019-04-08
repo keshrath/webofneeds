@@ -117,7 +117,7 @@ import won from "./won.js";
       cnt: "http://www.w3.org/2011/content#",
     };
     o[won.WONMSG.EnvelopeGraphCompacted] = {
-      "@id": "http://purl.org/webofneeds/message#EnvelopeGraph",
+      "@id": "https://w3id.org/won/message#EnvelopeGraph",
       "@type": "@id",
     };
     return o;

@@ -97,17 +97,17 @@
 ```
 <https://localhost:8443/won/resource/event/00d5wzbbf8hzzt2eewcc> {
     <https://localhost:8443/won/resource/event/5669098069340991000>
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasTextMessage>
                     "one" .
 }
 
 <https://localhost:8443/won/resource/event/usi9yhill1lo2xi70sjx> {
     <https://localhost:8443/won/resource/event/6671551888677331000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "hi" .
 }
 ```

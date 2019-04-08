@@ -5,7 +5,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 
 public class WONAGR {
-    public static final String BASE_URI = "http://purl.org/webofneeds/agreement#";
+    public static final String BASE_URI = "https://w3id.org/won/agreement#";
     private static Model m = ModelFactory.createDefaultModel();
     public static Property PROPOSES = m.createProperty(BASE_URI + "proposes");
     public static Property PROPOSES_TO_CANCEL = m.createProperty(BASE_URI + "proposesToCancel");

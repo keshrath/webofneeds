@@ -6,9 +6,9 @@
 @prefix remote: <http://www.remote-example.com/resource/need/randomNeedID_2> .
 @prefix webID:  <http://www.example.com/webids/> .
 
-@prefix won:    <http://purl.org/webofneeds/model#> .
-@prefix crypt:  <http://purl.org/webofneeds/cryptography#> .
-@prefix msg:    <http://purl.org/webofneeds/message#> .
+@prefix won:    <https://w3id.org/won/model#> .
+@prefix crypt:  <https://w3id.org/won/cryptography#> .
+@prefix msg:    <https://w3id.org/won/message#> .
 
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix tio:    <http://purl.org/tio/ns#> .

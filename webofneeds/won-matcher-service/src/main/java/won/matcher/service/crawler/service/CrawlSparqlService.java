@@ -89,7 +89,7 @@ public class CrawlSparqlService extends SparqlService {
         builder.append("}};\n");
         ParameterizedSparqlString pss = new ParameterizedSparqlString();
         pss.setCommandText(builder.toString());
-        pss.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pss.setNsPrefix("won", "https://w3id.org/won/model#");
         pss.setIri("msgUri", msg.getUri());
         pss.setLiteral("crawlDate", msg.getCrawlDate());
         pss.setLiteral("crawlStatus", msg.getStatus().toString());
@@ -133,7 +133,7 @@ public class CrawlSparqlService extends SparqlService {
                         + " OPTIONAL { ?uri won:wonNodeUri ?wonNode }\n"
                         + " OPTIONAL { ?uri won:resourceETagValue ?etag }}}\n" + " GROUP BY ?uri ?base ?wonNode\n";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         pps.setCommandText(queryString);
         pps.setLiteral("status", status.toString());
         log.debug("Query SPARQL Endpoint: {}", sparqlEndpoint);
@@ -249,7 +249,7 @@ public class CrawlSparqlService extends SparqlService {
                                                                                                  // injection risk
                         " OPTIONAL {?uri won:resourceETagValue ?etag. }}\n" + " GROUP BY ?uri\n";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         pps.setCommandText(queryString);
         baseUri = baseUri.trim();
         if (baseUri.endsWith("/")) {
@@ -299,7 +299,7 @@ public class CrawlSparqlService extends SparqlService {
                         + " ?needUri dcterms:modified ?modificationDate. \n" + " ?needUri won:crawlStatus 'DONE'. \n"
                         + "} ORDER BY DESC(?modificationDate) LIMIT 1\n";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         pps.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
         pps.setCommandText(queryString);
         pps.setIri("wonNodeUri", wonNodeUri);
@@ -329,7 +329,7 @@ public class CrawlSparqlService extends SparqlService {
                         + " ?connectionUri dcterms:modified ?modificationDate. \n"
                         + " ?connectionUri won:crawlStatus 'DONE'. \n" + "} ORDER BY DESC(?modificationDate) LIMIT 1\n";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         pps.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
         pps.setCommandText(queryString);
         pps.setIri("wonNodeUri", wonNodeUri);
@@ -357,7 +357,7 @@ public class CrawlSparqlService extends SparqlService {
                         + "  FILTER (?date >= ?fromDate && ?date < ?toDate ) \n" + "} " + orderClause
                         + " OFFSET ?offset\n" + " LIMIT ?limit";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         pps.setCommandText(queryTemplate);
         pps.setLiteral("fromDate", fromDate);
         pps.setLiteral("toDate", toDate);

@@ -8,10 +8,10 @@ public class WonQueries {
                     + "PREFIX geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#>"
                     + "PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>"
                     + "PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                    + "PREFIX won:   <http://purl.org/webofneeds/model#>"
+                    + "PREFIX won:   <https://w3id.org/won/model#>"
                     + "PREFIX gr:    <http://purl.org/goodrelations/v1#>" + "PREFIX sioc:  <http://rdfs.org/sioc/ns#>"
                     + "PREFIX ldp:   <http://www.w3.org/ns/ldp#>" + "PREFIX dc:    <http://purl.org/dc/elements/1.1/>"
-                    + "PREFIX msg:   <http://purl.org/webofneeds/message#>";
+                    + "PREFIX msg:   <https://w3id.org/won/message#>";
     public static final String SPARQL_ALL_TRIPLES = SPARQL_PREFIX + "SELECT * WHERE { graph ?g {?s ?p ?o} . }";
     public static final String SPARQL_ALL_GRAPHS = SPARQL_PREFIX + "SELECT DISTINCT ?g WHERE {graph ?g {?s ?p ?o }.}";
     public static final String SPARQL_ALL_NEEDS = SPARQL_PREFIX + "SELECT * WHERE " + "{ ?need won:hasContent ?x; "

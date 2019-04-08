@@ -44,7 +44,7 @@ public class TransportOfferNeedGenerator {
             setPrefixes();
             Resource need = model.createResource(needURI);
             Resource seeksPart = model.createResource();
-            Resource won_Need = model.createResource("http://purl.org/webofneeds/model#Need");
+            Resource won_Need = model.createResource("https://w3id.org/won/model#Need");
             // method signatures: branch, probability that detail is added, min, max
             need = addTitle(need, 1.0, i);
             need = addLocation(need, 1.0);
@@ -237,9 +237,9 @@ public class TransportOfferNeedGenerator {
         model.setNsPrefix("need", "https://localhost:8443/won/resource/need/");
         model.setNsPrefix("local", "https://localhost:8443/won/resource/");
         model.setNsPrefix("event", "https://localhost:8443/won/resource/event/");
-        model.setNsPrefix("msg", "http://purl.org/webofneeds/message#");
-        model.setNsPrefix("won", "http://purl.org/webofneeds/model#");
-        model.setNsPrefix("woncrypt", "http://purl.org/webofneeds/woncrypt#");
+        model.setNsPrefix("msg", "https://w3id.org/won/message#");
+        model.setNsPrefix("won", "https://w3id.org/won/model#");
+        model.setNsPrefix("woncrypt", "https://w3id.org/won/woncrypt#");
         model.setNsPrefix("cert", "http://www.w3.org/ns/auth/cert#");
         model.setNsPrefix("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
         model.setNsPrefix("sig", "http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#");

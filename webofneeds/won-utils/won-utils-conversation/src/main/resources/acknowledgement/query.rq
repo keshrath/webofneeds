@@ -1,7 +1,7 @@
-PREFIX mod: <http://purl.org/webofneeds/modification#>
+PREFIX mod: <https://w3id.org/won/modification#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX msg: <http://purl.org/webofneeds/message#>
-PREFIX won: <http://purl.org/webofneeds/model#>
+PREFIX msg: <https://w3id.org/won/message#>
+PREFIX won: <https://w3id.org/won/model#>
 PREFIX rdfg: <http://www.w3.org/2004/03/trix/rdfg-1/>
 
 DELETE {

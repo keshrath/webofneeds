@@ -134,7 +134,7 @@ public class CommentBotTest {
                         + "PREFIX geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#>"
                         + "PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>"
                         + "PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                        + "PREFIX won:   <http://purl.org/webofneeds/model#>"
+                        + "PREFIX won:   <https://w3id.org/won/model#>"
                         + "PREFIX gr:    <http://purl.org/goodrelations/v1#>"
                         + "PREFIX sioc:  <http://rdfs.org/sioc/ns#>" + "PREFIX ldp:   <http://www.w3.org/ns/ldp#>";
 

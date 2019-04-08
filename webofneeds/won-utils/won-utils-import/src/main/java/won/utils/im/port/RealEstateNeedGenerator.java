@@ -68,7 +68,7 @@ public class RealEstateNeedGenerator {
             need.addProperty(RDF.type, WON.NEED);
             /*
              * no facets - they are added by the bot Resource won_ChatFacet =
-             * model.createResource("http://purl.org/webofneeds/model#ChatFacet"); Resource
+             * model.createResource("https://w3id.org/won/model#ChatFacet"); Resource
              * holdableFacet = need.getModel().getResource(needURI + "#holdableFacet");
              * holdableFacet.addProperty(RDF.type,
              * holdableFacet.getModel().getResource(FacetType.HoldableFacet.getURI().
@@ -333,9 +333,9 @@ public class RealEstateNeedGenerator {
         model.setNsPrefix("need", "https://localhost:8443/won/resource/need/");
         model.setNsPrefix("local", "https://localhost:8443/won/resource/");
         model.setNsPrefix("event", "https://localhost:8443/won/resource/event/");
-        model.setNsPrefix("msg", "http://purl.org/webofneeds/message#");
-        model.setNsPrefix("won", "http://purl.org/webofneeds/model#");
-        model.setNsPrefix("woncrypt", "http://purl.org/webofneeds/woncrypt#");
+        model.setNsPrefix("msg", "https://w3id.org/won/message#");
+        model.setNsPrefix("won", "https://w3id.org/won/model#");
+        model.setNsPrefix("woncrypt", "https://w3id.org/won/woncrypt#");
         model.setNsPrefix("cert", "http://www.w3.org/ns/auth/cert#");
         model.setNsPrefix("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
         model.setNsPrefix("sig", "http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#");

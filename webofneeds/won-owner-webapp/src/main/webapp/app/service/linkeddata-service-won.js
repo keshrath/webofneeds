@@ -102,7 +102,7 @@ import won from "./won.js";
   won.clearStore = function() {
     //create an rdfstore-js based store as a cache for rdf data.
     privateData.store = rdfstore.create();
-    privateData.store.setPrefix("msg", "http://purl.org/webofneeds/message#");
+    privateData.store.setPrefix("msg", "https://w3id.org/won/message#");
     privateData.store.setPrefix(
       "rdf",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -112,7 +112,7 @@ import won from "./won.js";
       "http://www.w3.org/2000/01/rdf-schema#"
     );
     privateData.store.setPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
-    privateData.store.setPrefix("won", "http://purl.org/webofneeds/model#");
+    privateData.store.setPrefix("won", "https://w3id.org/won/model#");
 
     window.store4dbg = privateData.store;
 
@@ -626,8 +626,8 @@ import won from "./won.js";
       const queryPromise = executeQueryOnRdfStore(
         tmpstore,
         `
-                prefix won: <http://purl.org/webofneeds/model#>
-                prefix msg: <http://purl.org/webofneeds/message#>
+                prefix won: <https://w3id.org/won/model#>
+                prefix msg: <https://w3id.org/won/message#>
                 prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
                 prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 select distinct ?s where {
@@ -689,7 +689,7 @@ import won from "./won.js";
             tmpstore,
             `
                           prefix event: <${baseUriForEvents}>
-                          prefix msg: <http://purl.org/webofneeds/message#>
+                          prefix msg: <https://w3id.org/won/message#>
 
                           select distinct ?graphOfMessage where {
                               { <${messageUri}> msg:hasCorrespondingRemoteMessage ?graphOfMessage } union
@@ -1683,7 +1683,7 @@ import won from "./won.js";
         },
       ],
       query:
-        "prefix won: <http://purl.org/webofneeds/model#> \n" +
+        "prefix won: <https://w3id.org/won/model#> \n" +
         "prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> \n" +
         "select ?connectionUri ?connectionState ?facetType \n" +
         " where { \n" +

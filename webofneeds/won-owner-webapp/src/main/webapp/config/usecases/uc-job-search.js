@@ -58,7 +58,7 @@ export const jobSearch = {
    * ```
    * # index for industries using binds
    * prefix s: <http://schema.org/>
-   * prefix won:   <http://purl.org/webofneeds/model#>
+   * prefix won:   <https://w3id.org/won/model#>
    * select distinct * where {
    *   {
    *     select

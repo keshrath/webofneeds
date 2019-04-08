@@ -22,7 +22,7 @@ import won.protocol.model.NeedState;
  * WoN Vocabulary
  */
 public class WON {
-    public static final String BASE_URI = "http://purl.org/webofneeds/model#";
+    public static final String BASE_URI = "https://w3id.org/won/model#";
     private static Model m = ModelFactory.createDefaultModel();
     public static final Resource NEED = m.createResource(BASE_URI + "Need");
     public static final Property HAS_WON_NODE = m.createProperty(BASE_URI, "hasWonNode");
@@ -79,7 +79,7 @@ public class WON {
     public static final Property HAS_WIDTH = m.createProperty(BASE_URI, "hasWidth");
     public static final Property HAS_WEIGHT = m.createProperty(BASE_URI, "hasWeight");
     public static final Property HAS_QUANTITATIVE_PROPERTY = m.createProperty(BASE_URI, "hasQuantitativeProperty");
-    public static final Property TRAVEL_ACTION = m.createProperty("http://purl.org/webofneeds/model#travelAction");
+    public static final Property TRAVEL_ACTION = m.createProperty("https://w3id.org/won/model#travelAction");
     public static final Property HAS_FACET = m.createProperty(BASE_URI, "hasFacet");
     public static final Property HAS_DEFAULT_FACET = m.createProperty(BASE_URI, "hasDefaultFacet");
     public static final Resource FACET = m.createResource(BASE_URI + "Facet");

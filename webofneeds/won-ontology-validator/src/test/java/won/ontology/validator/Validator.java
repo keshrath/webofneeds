@@ -40,8 +40,8 @@ import org.junit.Test;
 public class Validator {
     private final static String WON_ONTOLOGY_FILE = "/won_ontology_v0.11.rdf";
     private final static String EXAMPLE_ONTOLOGY_FILE = "/won_ontology_example_1.rdf";
-    private final static String WON_ONTOLOGY_URI = "http://purl.org/webofneeds/model#";
-    private final static String EXAMPLE_ONTOLOGY_URI = "http://purl.org/webofneeds/example#";
+    private final static String WON_ONTOLOGY_URI = "https://w3id.org/won/model#";
+    private final static String EXAMPLE_ONTOLOGY_URI = "https://w3id.org/won/example#";
     private static OntModel ontModel;
     private static String sparqlPreface;
 
@@ -486,8 +486,8 @@ public class Validator {
         } finally {
             qExec.close();
         }
-        String expected1 = "( ?event = <http://purl.org/webofneeds/example#Hint_01_1> ) "
-                        + "( ?additionalInfo = <http://purl.org/webofneeds/example#MatchExplanation_01> )";
+        String expected1 = "( ?event = <https://w3id.org/won/example#Hint_01_1> ) "
+                        + "( ?additionalInfo = <https://w3id.org/won/example#MatchExplanation_01> )";
         assertThat(actualList, hasItems(expected1));
         assertEquals("wrong number of results", 1, actualList.size());
     }
@@ -509,7 +509,7 @@ public class Validator {
         } finally {
             qExec.close();
         }
-        String expected1 = "( ?need = <http://purl.org/webofneeds/example#Need_01> ) ( ?constraint = <http://purl.org/webofneeds/example#MyCouchConstraint> )";
+        String expected1 = "( ?need = <https://w3id.org/won/example#Need_01> ) ( ?constraint = <https://w3id.org/won/example#MyCouchConstraint> )";
         assertThat(actualList, hasItems(expected1));
         assertEquals("wrong number of results", 1, actualList.size());
     }
@@ -531,9 +531,9 @@ public class Validator {
         } finally {
             qExec.close();
         }
-        String expected1 = "( ?need = <http://purl.org/webofneeds/example#Need_01> ) "
+        String expected1 = "( ?need = <https://w3id.org/won/example#Need_01> ) "
                         + "( ?tag = <http://www.dmoz.org/Shopping/Home_and_Garden/Furniture/Recycled_Materials/> )";
-        String expected2 = "( ?need = <http://purl.org/webofneeds/example#Need_01> ) "
+        String expected2 = "( ?need = <https://w3id.org/won/example#Need_01> ) "
                         + "( ?tag = <http://www.dmoz.org/Shopping/Home_and_Garden/Furniture/> )";
         assertThat(actualList, hasItems(expected1, expected2));
         assertEquals("wrong number of results", 2, actualList.size());

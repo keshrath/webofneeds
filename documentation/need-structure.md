@@ -16,7 +16,7 @@ Below, we'll explain the most important aspects.
 @prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix s:     <http://schema.org/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix won:   <http://purl.org/webofneeds/model#> .
+@prefix won:   <https://w3id.org/won/model#> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 need:sitl5bx3kk96

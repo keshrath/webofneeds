@@ -57,8 +57,7 @@ public class NeedModelWrapperTest {
         // query the need model values
         Assert.assertTrue(needModelWrapper.hasFlag(WON.USED_FOR_TESTING));
         Assert.assertEquals(1, needModelWrapper.getFacetUris().size());
-        Assert.assertEquals("http://purl.org/webofneeds/model#ChatFacet",
-                        needModelWrapper.getFacetUris().iterator().next());
+        Assert.assertEquals("https://w3id.org/won/model#ChatFacet", needModelWrapper.getFacetUris().iterator().next());
         Assert.assertTrue(needModelWrapper.hasFlag(WON.NO_HINT_FOR_ME));
         // query the content nodes
         Assert.assertEquals(2, needModelWrapper.getAllContentNodes().size());
@@ -74,13 +73,11 @@ public class NeedModelWrapperTest {
                         needModelWrapper.getContentPropertyStringValue("s:location/s:geo/s:longitude"));
         // query the goals
         Assert.assertEquals(2, needModelWrapper.getGoals().size());
-        Assert.assertNotNull(needModelWrapper.getGoal("http://purl.org/webofneeds/model#NamedGoal"));
+        Assert.assertNotNull(needModelWrapper.getGoal("https://w3id.org/won/model#NamedGoal"));
         Assert.assertTrue(needModelWrapper
-                        .getShapesGraph(needModelWrapper.getGoal("http://purl.org/webofneeds/model#NamedGoal"))
-                        .isEmpty());
+                        .getShapesGraph(needModelWrapper.getGoal("https://w3id.org/won/model#NamedGoal")).isEmpty());
         Assert.assertTrue(needModelWrapper
-                        .getDataGraph(needModelWrapper.getGoal("http://purl.org/webofneeds/model#NamedGoal"))
-                        .isEmpty());
+                        .getDataGraph(needModelWrapper.getGoal("https://w3id.org/won/model#NamedGoal")).isEmpty());
         Collection<Resource> goals = needModelWrapper.getGoals();
         Resource blank = null;
         for (Resource goal : goals) {

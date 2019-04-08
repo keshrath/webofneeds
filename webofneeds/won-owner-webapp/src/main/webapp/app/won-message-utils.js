@@ -339,33 +339,25 @@ export function buildChatMessage({
               switch (key) {
                 case "retracts":
                   contentNode[
-                    "http://purl.org/webofneeds/modification#retracts"
+                    "https://w3id.org/won/modification#retracts"
                   ] = uris;
                   break;
                 case "rejects":
-                  contentNode[
-                    "http://purl.org/webofneeds/agreement#rejects"
-                  ] = uris;
+                  contentNode["https://w3id.org/won/agreement#rejects"] = uris;
                   break;
                 case "proposes":
-                  contentNode[
-                    "http://purl.org/webofneeds/agreement#proposes"
-                  ] = uris;
+                  contentNode["https://w3id.org/won/agreement#proposes"] = uris;
                   break;
                 case "claims":
-                  contentNode[
-                    "http://purl.org/webofneeds/agreement#claims"
-                  ] = uris;
+                  contentNode["https://w3id.org/won/agreement#claims"] = uris;
                   break;
                 case "proposesToCancel":
                   contentNode[
-                    "http://purl.org/webofneeds/agreement#proposesToCancel"
+                    "https://w3id.org/won/agreement#proposesToCancel"
                   ] = uris;
                   break;
                 case "accepts":
-                  contentNode[
-                    "http://purl.org/webofneeds/agreement#accepts"
-                  ] = uris;
+                  contentNode["https://w3id.org/won/agreement#accepts"] = uris;
                   break;
                 default:
                   console.error(

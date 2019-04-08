@@ -45,7 +45,7 @@ won.clearDisclaimerAccepted = clearDisclaimerAccepted;
 won.setDisclaimerAccepted = setDisclaimerAccepted;
 
 won.WON = {};
-won.WON.baseUri = "http://purl.org/webofneeds/model#";
+won.WON.baseUri = "https://w3id.org/won/model#";
 //won.WON.matcherURI = "http://localhost:8080/matcher/search/"
 won.WON.matcherURI = "https://localhost:8443/matcher/search/";
 //won.WON.matcherURI = "http://sat001.researchstudio.at:8080/matcher/search/";
@@ -198,7 +198,7 @@ won.WON.searchResult = won.WON.baseUri + "Match";
 won.WON.usedForTesting = won.WON.prefix + "UserForTesting";
 
 won.WONMSG = {};
-won.WONMSG.baseUri = "http://purl.org/webofneeds/message#";
+won.WONMSG.baseUri = "https://w3id.org/won/message#";
 won.WONMSG.prefix = "msg";
 
 //sender/receiver etc.
@@ -416,7 +416,7 @@ won.WON.contentNodeBlankUri = Object.freeze({
 
 /**
  * Compacts the passed string if possible.
- * e.g. "http://purl.org/webofneeds/model#Demand" -> "won:Demand"
+ * e.g. "https://w3id.org/won/model#Demand" -> "won:Demand"
  * @param {*} longValue
  * @param {*} context
  */
@@ -662,13 +662,13 @@ function context2ttlPrefixes(jsonldContext) {
 }
 
 won.minimalContext = {
-  msg: "http://purl.org/webofneeds/message#",
-  won: "http://purl.org/webofneeds/model#",
+  msg: "https://w3id.org/won/message#",
+  won: "https://w3id.org/won/model#",
   rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-  agr: "http://purl.org/webofneeds/agreement#",
-  pay: "http://purl.org/webofneeds/payment#",
+  agr: "https://w3id.org/won/agreement#",
+  pay: "https://w3id.org/won/payment#",
   gr: "http://purl.org/goodrelations/v1#",
-  wf: "http://purl.org/webofneeds/workflow#",
+  wf: "https://w3id.org/won/workflow#",
   rdfg: "http://www.w3.org/2004/03/trix/rdfg-1/",
 };
 won.minimalTurtlePrefixes = context2ttlPrefixes(won.minimalContext);
@@ -686,16 +686,16 @@ won.defaultContext = {
   sioc: "http://rdfs.org/sioc/ns#",
   dct: "http://purl.org/dc/terms/",
   cert: "http://www.w3.org/ns/auth/cert#",
-  woncrypt: "http://purl.org/webofneeds/woncrypt#",
+  woncrypt: "https://w3id.org/won/woncrypt#",
   s: "http://schema.org/",
   sh: "http://www.w3.org/ns/shacl#",
   foaf: "http://xmlns.com/foaf/0.1/",
   "msg:hasMessageType": {
-    "@id": "http://purl.org/webofneeds/message#hasMessageType",
+    "@id": "https://w3id.org/won/message#hasMessageType",
     "@type": "@id",
   },
 };
-/** ttl-prefixes e.g. `@prefix msg: <http://purl.org/webofneeds/message#>.\n @prefix...` */
+/** ttl-prefixes e.g. `@prefix msg: <https://w3id.org/won/message#>.\n @prefix...` */
 won.defaultTurtlePrefixes = context2ttlPrefixes(won.defaultContext);
 
 won.JsonLdHelper = {
@@ -1107,7 +1107,7 @@ WonMessage.prototype = {
 
   getRemoteMessageUri: function() {
     return this.getProperty(
-      "http://purl.org/webofneeds/message#hasCorrespondingRemoteMessage"
+      "https://w3id.org/won/message#hasCorrespondingRemoteMessage"
     );
   },
 
@@ -1293,7 +1293,7 @@ WonMessage.prototype = {
   },
   getPropertyFromRemoteMessage: function(property) {
     const remoteMessage = this.__getFramedMessage()["@graph"][0][
-      "http://purl.org/webofneeds/message#hasCorrespondingRemoteMessage"
+      "https://w3id.org/won/message#hasCorrespondingRemoteMessage"
     ];
     if (remoteMessage) {
       let val = remoteMessage[property];
@@ -1344,30 +1344,26 @@ WonMessage.prototype = {
     return this.compactRawMessage;
   },
   getMessageType: function() {
-    return this.getProperty(
-      "http://purl.org/webofneeds/message#hasMessageType"
-    );
+    return this.getProperty("https://w3id.org/won/message#hasMessageType");
   },
   getInjectIntoConnectionUris: function() {
     return createArray(
-      this.getProperty(
-        "http://purl.org/webofneeds/message#hasInjectIntoConnection"
-      )
+      this.getProperty("https://w3id.org/won/message#hasInjectIntoConnection")
     );
   },
   getForwardedMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/message#hasForwardedMessage")
+      this.getProperty("https://w3id.org/won/message#hasForwardedMessage")
     );
   },
   getReceivedTimestamp: function() {
     return this.getPropertyFromLocalMessage(
-      "http://purl.org/webofneeds/message#hasReceivedTimestamp"
+      "https://w3id.org/won/message#hasReceivedTimestamp"
     );
   },
   getSentTimestamp: function() {
     return this.getPropertyFromLocalMessage(
-      "http://purl.org/webofneeds/message#hasSentTimestamp"
+      "https://w3id.org/won/message#hasSentTimestamp"
     );
   },
   /**
@@ -1382,111 +1378,101 @@ WonMessage.prototype = {
     return this.getSentTimestamp();
   },
   getTextMessage: function() {
-    return this.getProperty("http://purl.org/webofneeds/model#hasTextMessage");
+    return this.getProperty("https://w3id.org/won/model#hasTextMessage");
   },
   getMatchScore: function() {
-    return this.getProperty("http://purl.org/webofneeds/model#hasMatchScore");
+    return this.getProperty("https://w3id.org/won/model#hasMatchScore");
   },
   getMatchCounterpart: function() {
-    return this.getProperty(
-      "http://purl.org/webofneeds/model#hasMatchCounterpart"
-    );
+    return this.getProperty("https://w3id.org/won/model#hasMatchCounterpart");
   },
   getIsResponseTo: function() {
-    return this.getProperty("http://purl.org/webofneeds/message#isResponseTo");
+    return this.getProperty("https://w3id.org/won/message#isResponseTo");
   },
   getIsRemoteResponseTo: function() {
-    return this.getProperty(
-      "http://purl.org/webofneeds/message#isRemoteResponseTo"
-    );
+    return this.getProperty("https://w3id.org/won/message#isRemoteResponseTo");
   },
   getIsResponseToMessageType: function() {
     return this.getProperty(
-      "http://purl.org/webofneeds/message#isResponseToMessageType"
+      "https://w3id.org/won/message#isResponseToMessageType"
     );
   },
 
   getSenderNode: function() {
-    return this.getProperty("http://purl.org/webofneeds/message#hasSenderNode");
+    return this.getProperty("https://w3id.org/won/message#hasSenderNode");
   },
   getSenderNeed: function() {
-    return this.getProperty("http://purl.org/webofneeds/message#hasSenderNeed");
+    return this.getProperty("https://w3id.org/won/message#hasSenderNeed");
   },
   getSender: function() {
-    return this.getProperty("http://purl.org/webofneeds/message#hasSender");
+    return this.getProperty("https://w3id.org/won/message#hasSender");
   },
   getReceiverNode: function() {
-    return this.getProperty(
-      "http://purl.org/webofneeds/message#hasReceiverNode"
-    );
+    return this.getProperty("https://w3id.org/won/message#hasReceiverNode");
   },
   getReceiverNeed: function() {
-    return this.getProperty(
-      "http://purl.org/webofneeds/message#hasReceiverNeed"
-    );
+    return this.getProperty("https://w3id.org/won/message#hasReceiverNeed");
   },
   getReceiver: function() {
-    return this.getProperty("http://purl.org/webofneeds/message#hasReceiver");
+    return this.getProperty("https://w3id.org/won/message#hasReceiver");
   },
 
   getProposedMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/agreement#proposes")
+      this.getProperty("https://w3id.org/won/agreement#proposes")
     );
   },
 
   getClaimsMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/agreement#claims")
+      this.getProperty("https://w3id.org/won/agreement#claims")
     );
   },
 
   getAcceptsMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/agreement#accepts")
+      this.getProperty("https://w3id.org/won/agreement#accepts")
     );
   },
   getProposedToCancelMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/agreement#proposesToCancel")
+      this.getProperty("https://w3id.org/won/agreement#proposesToCancel")
     );
   },
   getRejectsMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/agreement#rejects")
+      this.getProperty("https://w3id.org/won/agreement#rejects")
     );
   },
   getRetractsMessageUris: function() {
     return createArray(
-      this.getProperty("http://purl.org/webofneeds/modification#retracts")
+      this.getProperty("https://w3id.org/won/modification#retracts")
     );
   },
 
   isProposeMessage: function() {
-    return !!this.getProperty("http://purl.org/webofneeds/agreement#proposes");
+    return !!this.getProperty("https://w3id.org/won/agreement#proposes");
   },
   isAcceptMessage: function() {
-    return !!this.getProperty("http://purl.org/webofneeds/agreement#accepts");
+    return !!this.getProperty("https://w3id.org/won/agreement#accepts");
   },
   isProposeToCancel: function() {
     return !!this.getProperty(
-      "http://purl.org/webofneeds/agreement#proposesToCancel"
+      "https://w3id.org/won/agreement#proposesToCancel"
     );
   },
   isProposal: function() {
-    return !!this.getProperty("http://purl.org/webofneeds/agreement#Proposal");
+    return !!this.getProperty("https://w3id.org/won/agreement#Proposal");
   },
   isAgreement: function() {
-    return !!this.getProperty("http://purl.org/webofneeds/agreement#Agreement");
+    return !!this.getProperty("https://w3id.org/won/agreement#Agreement");
   },
 
   isRejectMessage: function() {
-    return !!this.getProperty("http://purl.org/webofneeds/agreement#rejects");
+    return !!this.getProperty("https://w3id.org/won/agreement#rejects");
   },
   isRetractMessage: function() {
-    return !!this.getProperty(
-      "http://purl.org/webofneeds/modification#retracts"
-    );
+    return !!this.getProperty("https://w3id.org/won/modification#retracts");
   },
   isOutgoingMessage: function() {
     return (
@@ -1508,165 +1494,150 @@ WonMessage.prototype = {
   },
   isFromSystem: function() {
     let direction = this.getMessageDirection();
-    return direction === "http://purl.org/webofneeds/message#FromSystem";
+    return direction === "https://w3id.org/won/message#FromSystem";
   },
   isFromOwner: function() {
     let direction = this.getMessageDirection();
-    return direction === "http://purl.org/webofneeds/message#FromOwner";
+    return direction === "https://w3id.org/won/message#FromOwner";
   },
   isFromExternal: function() {
     let direction = this.getMessageDirection();
-    return direction === "http://purl.org/webofneeds/message#FromExternal";
+    return direction === "https://w3id.org/won/message#FromExternal";
   },
 
   isHintMessage: function() {
-    return (
-      this.getMessageType() === "http://purl.org/webofneeds/message#HintMessage"
-    );
+    return this.getMessageType() === "https://w3id.org/won/message#HintMessage";
   },
   isCreateMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#CreateMessage"
+      this.getMessageType() === "https://w3id.org/won/message#CreateMessage"
     );
   },
   isConnectMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#ConnectMessage"
+      this.getMessageType() === "https://w3id.org/won/message#ConnectMessage"
     );
   },
   isOpenMessage: function() {
-    return (
-      this.getMessageType() === "http://purl.org/webofneeds/message#OpenMessage"
-    );
+    return this.getMessageType() === "https://w3id.org/won/message#OpenMessage";
   },
   isConnectionMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#ConnectionMessage"
+      this.getMessageType() === "https://w3id.org/won/message#ConnectionMessage"
     );
   },
   isCloseMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#CloseMessage"
+      this.getMessageType() === "https://w3id.org/won/message#CloseMessage"
     );
   },
   isHintFeedbackMessage: function() {
     return (
       this.getMessageType() ===
-      "http://purl.org/webofneeds/message#HintFeedbackMessage"
+      "https://w3id.org/won/message#HintFeedbackMessage"
     );
   },
   isActivateMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#ActivateMessage"
+      this.getMessageType() === "https://w3id.org/won/message#ActivateMessage"
     );
   },
   isDeactivateMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#DeactivateMessage"
+      this.getMessageType() === "https://w3id.org/won/message#DeactivateMessage"
     );
   },
   isDeleteMessage: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#DeleteMessage"
+      this.getMessageType() === "https://w3id.org/won/message#DeleteMessage"
     );
   },
   isNeedMessage: function() {
-    return (
-      this.getMessageType() === "http://purl.org/webofneeds/message#NeedMessage"
-    );
+    return this.getMessageType() === "https://w3id.org/won/message#NeedMessage";
   },
   isResponse: function() {
     return this.isSuccessResponse() || this.isFailureResponse();
   },
   isSuccessResponse: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#SuccessResponse"
+      this.getMessageType() === "https://w3id.org/won/message#SuccessResponse"
     );
   },
   isFailureResponse: function() {
     return (
-      this.getMessageType() ===
-      "http://purl.org/webofneeds/message#FailureResponse"
+      this.getMessageType() === "https://w3id.org/won/message#FailureResponse"
     );
   },
   isResponseToReplaceMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#ReplaceMessage"
+      "https://w3id.org/won/message#ReplaceMessage"
     );
   },
   isResponseToHintMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#HintMessage"
+      "https://w3id.org/won/message#HintMessage"
     );
   },
   isResponseToCreateMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#CreateMessage"
+      "https://w3id.org/won/message#CreateMessage"
     );
   },
   isResponseToConnectMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#ConnectMessage"
+      "https://w3id.org/won/message#ConnectMessage"
     );
   },
   isResponseToOpenMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#OpenMessage"
+      "https://w3id.org/won/message#OpenMessage"
     );
   },
   isResponseToConnectionMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#ConnectionMessage"
+      "https://w3id.org/won/message#ConnectionMessage"
     );
   },
   isResponseToCloseMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#CloseMessage"
+      "https://w3id.org/won/message#CloseMessage"
     );
   },
   isResponseToHintFeedbackMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#HintFeedbackMessage"
+      "https://w3id.org/won/message#HintFeedbackMessage"
     );
   },
   isResponseToActivateMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#ActivateMessage"
+      "https://w3id.org/won/message#ActivateMessage"
     );
   },
   isResponseToDeactivateMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#DeactivateMessage"
+      "https://w3id.org/won/message#DeactivateMessage"
     );
   },
   isResponseToDeleteMessage: function() {
     return (
       this.getIsResponseToMessageType() ===
-      "http://purl.org/webofneeds/message#DeleteMessage"
+      "https://w3id.org/won/message#DeleteMessage"
     );
   },
   isChangeNotificationMessage: function() {
     return (
       this.getMessageType() ===
-      "http://purl.org/webofneeds/message#ChangeNotificationMessage"
+      "https://w3id.org/won/message#ChangeNotificationMessage"
     );
   },
 
@@ -1795,7 +1766,7 @@ WonMessage.prototype = {
             node.remoteEnvelope = remoteMessages[0];
             if (
               node.messageDirection ===
-              "http://purl.org/webofneeds/message#FromExternal"
+              "https://w3id.org/won/message#FromExternal"
             ) {
               //both messages can link to each other, but the FromExternal one
               //is the top level one. mark the other one as referenced
@@ -1853,9 +1824,7 @@ WonMessage.prototype = {
     return graphData.some(
       resource =>
         resource["@id"] === graphUri &&
-        resource["@type"].includes(
-          "http://purl.org/webofneeds/message#EnvelopeGraph"
-        )
+        resource["@type"].includes("https://w3id.org/won/message#EnvelopeGraph")
     );
   },
   __isSignatureGraph: graph => {
@@ -1875,8 +1844,7 @@ WonMessage.prototype = {
     let data = graphData
       .filter(resource => resource["@id"] == graphUri)
       .map(
-        resource =>
-          resource["http://purl.org/webofneeds/message#containsEnvelope"]
+        resource => resource["https://w3id.org/won/message#containsEnvelope"]
       )
       .filter(x => x);
     if (data.length > 0) {
@@ -1889,9 +1857,7 @@ WonMessage.prototype = {
     let graphData = graph["@graph"];
     const contentUrisArray = graphData
       .filter(resource => resource["@id"] === messageUri)
-      .map(
-        resource => resource["http://purl.org/webofneeds/message#hasContent"]
-      )
+      .map(resource => resource["https://w3id.org/won/message#hasContent"])
       .filter(x => x);
     if (contentUrisArray.length > 0) {
       return contentUrisArray[0].map(x => x["@id"] || x["@value"]);
@@ -1905,14 +1871,12 @@ WonMessage.prototype = {
       .filter(
         resource =>
           resource["@type"].includes(
-            "http://purl.org/webofneeds/message#FromExternal"
+            "https://w3id.org/won/message#FromExternal"
           ) ||
           resource["@type"].includes(
-            "http://purl.org/webofneeds/message#FromOwner"
+            "https://w3id.org/won/message#FromOwner"
           ) ||
-          resource["@type"].includes(
-            "http://purl.org/webofneeds/message#FromSystem"
-          )
+          resource["@type"].includes("https://w3id.org/won/message#FromSystem")
       )
       .map(resource => ({
         messageUri: resource["@id"],
@@ -1932,15 +1896,13 @@ WonMessage.prototype = {
     let data = graphData
       .filter(
         resource =>
-          resource[
-            "http://purl.org/webofneeds/message#hasCorrespondingRemoteMessage"
-          ]
+          resource["https://w3id.org/won/message#hasCorrespondingRemoteMessage"]
       )
       .map(resource => ({
         messageUri: resource["@id"],
         correspondingRemoteMessageUri:
           resource[
-            "http://purl.org/webofneeds/message#hasCorrespondingRemoteMessage"
+            "https://w3id.org/won/message#hasCorrespondingRemoteMessage"
           ][0]["@id"],
       }))
       .filter(x => !!x); //if that property was not present, filter out undefineds
@@ -1956,13 +1918,12 @@ WonMessage.prototype = {
     let graphData = graph["@graph"];
     let data = graphData
       .filter(
-        resource =>
-          resource["http://purl.org/webofneeds/message#hasForwardedMessage"]
+        resource => resource["https://w3id.org/won/message#hasForwardedMessage"]
       )
       .map(resource => ({
         messageUri: resource["@id"],
         forwardedMessageUri:
-          resource["http://purl.org/webofneeds/message#hasForwardedMessage"][0][
+          resource["https://w3id.org/won/message#hasForwardedMessage"][0][
             "@id"
           ],
       }))
@@ -2008,7 +1969,7 @@ won.MessageBuilder.prototype = {
 
   eventURI: function(eventUri) {
     this.getContext()[won.WONMSG.EnvelopeGraphCompacted] = {
-      "@id": "http://purl.org/webofneeds/message#EnvelopeGraph",
+      "@id": "https://w3id.org/won/message#EnvelopeGraph",
       "@type": "@id",
     };
     const regex = new RegExp(won.replaceRegExp(this.eventUriValue));
@@ -2165,10 +2126,10 @@ won.MessageBuilder.prototype = {
   addRating: function(rating, connectionUri) {
     this.getContentGraphNode()[won.WON.hasFeedback] = {
       "@id": "_:b0",
-      "http://purl.org/webofneeds/model#forResource": {
+      "https://w3id.org/won/model#forResource": {
         "@id": connectionUri,
       },
-      "http://purl.org/webofneeds/model#hasBinaryRating": {
+      "https://w3id.org/won/model#hasBinaryRating": {
         "@id": rating,
       },
     };

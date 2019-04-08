@@ -19,8 +19,8 @@ import org.apache.jena.rdf.model.Resource;
  * User: Danijel Date: 5.6.14.
  */
 public class WON_TX {
-    // public static final String BASE_URI = "http://purl.org/webofneeds/tx/model#";
-    public static final String BASE_URI = "http://purl.org/webofneeds/tx/model#";
+    // public static final String BASE_URI = "https://w3id.org/won/tx/model#";
+    public static final String BASE_URI = "https://w3id.org/won/tx/model#";
     public static final String DEFAULT_PREFIX = "won-tx";
     private static Model m = ModelFactory.createDefaultModel();
     public static final Property COORDINATION_MESSAGE = m.createProperty(BASE_URI + "coordinationMessage");

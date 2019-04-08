@@ -2,8 +2,8 @@
 # eventContainerwith the exception of references pointing to
 # the `Create` message.
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix msg: <http://purl.org/webofneeds/message#>
-prefix won: <http://purl.org/webofneeds/model#>
+prefix msg: <https://w3id.org/won/message#>
+prefix won: <https://w3id.org/won/model#>
 select * where {
   ?cnt rdfs:member ?msg .
   ?cnt2 rdfs:member ?msg2 .

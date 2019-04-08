@@ -1,5 +1,5 @@
 prefix s:     <http://schema.org/>
-prefix won:   <http://purl.org/webofneeds/model#>
+prefix won:   <https://w3id.org/won/model#>
 
 Select ?lat ?lon
 

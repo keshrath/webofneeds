@@ -14,7 +14,7 @@ public class WONMSG {
     // TODO check with existing code how they do it, do they have ontology objects
     // and
     // access the vocabulary from there? If yes, change to that all the enum classes
-    public static final String BASE_URI = "http://purl.org/webofneeds/message#";
+    public static final String BASE_URI = "https://w3id.org/won/message#";
     public static final String DEFAULT_PREFIX = "msg";;
     private static Model m = ModelFactory.createDefaultModel();
     public static final String PROTOCOL_VERSION_STRING = BASE_URI + "protocolVersion";

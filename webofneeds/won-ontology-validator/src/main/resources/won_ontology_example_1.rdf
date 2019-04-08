@@ -9,17 +9,17 @@
     <!ENTITY oslc "http://open-services.net/ns/core#" >
     <!ENTITY gr "http://purl.org/goodrelations/v1#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY won "http://purl.org/webofneeds/model#" >
-    <!ENTITY wonex "http://purl.org/webofneeds/example#" >
+    <!ENTITY won "https://w3id.org/won/model#" >
+    <!ENTITY wonex "https://w3id.org/won/example#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://purl.org/webofneeds/example#"
-     xml:base="http://purl.org/webofneeds/example"
-     xmlns:wonex="http://purl.org/webofneeds/example#"
+<rdf:RDF xmlns="https://w3id.org/won/example#"
+     xml:base="https://w3id.org/won/example"
+     xmlns:wonex="https://w3id.org/won/example#"
      xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oslc="http://open-services.net/ns/core#"
@@ -28,12 +28,12 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:won="http://purl.org/webofneeds/model#"
+     xmlns:won="https://w3id.org/won/model#"
      xmlns:gr="http://purl.org/goodrelations/v1#"
      xmlns:all="http://schema.rdfs.org/all#">
-    <owl:Ontology rdf:about="http://purl.org/webofneeds/example">
-        <owl:imports rdf:resource="http://purl.org/webofneeds/model"/>
-        <owl:versionIRI rdf:resource="http://purl.org/webofneeds/example/1"/>
+    <owl:Ontology rdf:about="https://w3id.org/won/example">
+        <owl:imports rdf:resource="https://w3id.org/won/model"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/won/example/1"/>
         <owl:imports rdf:resource="http://schema.rdfs.org/all"/>
     </owl:Ontology>
     
@@ -56,181 +56,181 @@
     
 
 
-    <!-- http://purl.org/webofneeds/model#availableAtLocation -->
+    <!-- https://w3id.org/won/model#availableAtLocation -->
 
     <owl:AnnotationProperty rdf:about="&won;availableAtLocation"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#availableAtTime -->
+    <!-- https://w3id.org/won/model#availableAtTime -->
 
     <owl:AnnotationProperty rdf:about="&won;availableAtTime"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#contentDescription -->
+    <!-- https://w3id.org/won/model#contentDescription -->
 
     <owl:AnnotationProperty rdf:about="&won;contentDescription"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#depth -->
+    <!-- https://w3id.org/won/model#depth -->
 
     <owl:AnnotationProperty rdf:about="&won;depth"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#endTime -->
+    <!-- https://w3id.org/won/model#endTime -->
 
     <owl:AnnotationProperty rdf:about="&won;endTime"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasBasicNeedType -->
+    <!-- https://w3id.org/won/model#hasBasicNeedType -->
 
     <owl:AnnotationProperty rdf:about="&won;hasBasicNeedType"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasConnections -->
+    <!-- https://w3id.org/won/model#hasConnections -->
 
     <owl:AnnotationProperty rdf:about="&won;hasConnections"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasContent -->
+    <!-- https://w3id.org/won/model#hasContent -->
 
     <owl:AnnotationProperty rdf:about="&won;hasContent"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasCurrency -->
+    <!-- https://w3id.org/won/model#hasCurrency -->
 
     <owl:AnnotationProperty rdf:about="&won;hasCurrency"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasEventContainer -->
+    <!-- https://w3id.org/won/model#hasEventContainer -->
 
     <owl:AnnotationProperty rdf:about="&won;hasEventContainer"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasEventStatement -->
+    <!-- https://w3id.org/won/model#hasEventStatement -->
 
     <owl:AnnotationProperty rdf:about="&won;hasEventStatement"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasISOCode -->
+    <!-- https://w3id.org/won/model#hasISOCode -->
 
     <owl:AnnotationProperty rdf:about="&won;hasISOCode"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasLowerPriceLimit -->
+    <!-- https://w3id.org/won/model#hasLowerPriceLimit -->
 
     <owl:AnnotationProperty rdf:about="&won;hasLowerPriceLimit"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasNeedModality -->
+    <!-- https://w3id.org/won/model#hasNeedModality -->
 
     <owl:AnnotationProperty rdf:about="&won;hasNeedModality"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasOriginator -->
+    <!-- https://w3id.org/won/model#hasOriginator -->
 
     <owl:AnnotationProperty rdf:about="&won;hasOriginator"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasOwner -->
+    <!-- https://w3id.org/won/model#hasOwner -->
 
     <owl:AnnotationProperty rdf:about="&won;hasOwner"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasPriceSpecification -->
+    <!-- https://w3id.org/won/model#hasPriceSpecification -->
 
     <owl:AnnotationProperty rdf:about="&won;hasPriceSpecification"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasRemoteConnection -->
+    <!-- https://w3id.org/won/model#hasRemoteConnection -->
 
     <owl:AnnotationProperty rdf:about="&won;hasRemoteConnection"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasUpperPriceLimit -->
+    <!-- https://w3id.org/won/model#hasUpperPriceLimit -->
 
     <owl:AnnotationProperty rdf:about="&won;hasUpperPriceLimit"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#height -->
+    <!-- https://w3id.org/won/model#height -->
 
     <owl:AnnotationProperty rdf:about="&won;height"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#isConcealed -->
+    <!-- https://w3id.org/won/model#isConcealed -->
 
     <owl:AnnotationProperty rdf:about="&won;isConcealed"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#isInState -->
+    <!-- https://w3id.org/won/model#isInState -->
 
     <owl:AnnotationProperty rdf:about="&won;isInState"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#needCreationDate -->
+    <!-- https://w3id.org/won/model#needCreationDate -->
 
     <owl:AnnotationProperty rdf:about="&won;needCreationDate"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#occurredAt -->
+    <!-- https://w3id.org/won/model#occurredAt -->
 
     <owl:AnnotationProperty rdf:about="&won;occurredAt"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#recurIn -->
+    <!-- https://w3id.org/won/model#recurIn -->
 
     <owl:AnnotationProperty rdf:about="&won;recurIn"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#recurTimes -->
+    <!-- https://w3id.org/won/model#recurTimes -->
 
     <owl:AnnotationProperty rdf:about="&won;recurTimes"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#startTime -->
+    <!-- https://w3id.org/won/model#startTime -->
 
     <owl:AnnotationProperty rdf:about="&won;startTime"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#textDescription -->
+    <!-- https://w3id.org/won/model#textDescription -->
 
     <owl:AnnotationProperty rdf:about="&won;textDescription"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#weight -->
+    <!-- https://w3id.org/won/model#weight -->
 
     <owl:AnnotationProperty rdf:about="&won;weight"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#width -->
+    <!-- https://w3id.org/won/model#width -->
 
     <owl:AnnotationProperty rdf:about="&won;width"/>
     
@@ -277,7 +277,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#hasMatchExplanation -->
+    <!-- https://w3id.org/won/example#hasMatchExplanation -->
 
     <owl:ObjectProperty rdf:about="&wonex;hasMatchExplanation">
         <rdfs:domain rdf:resource="&wonex;MatchExplanation"/>
@@ -303,7 +303,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#hasMatchExplanation -->
+    <!-- https://w3id.org/won/example#hasMatchExplanation -->
 
     <owl:DatatypeProperty rdf:about="&wonex;hasMatchExplanation">
         <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
@@ -311,7 +311,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#hasMatchScore -->
+    <!-- https://w3id.org/won/example#hasMatchScore -->
 
     <owl:DatatypeProperty rdf:about="&wonex;hasMatchScore">
         <rdfs:domain rdf:resource="&wonex;MatchExplanation"/>
@@ -337,55 +337,55 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#MatchExplanation -->
+    <!-- https://w3id.org/won/example#MatchExplanation -->
 
     <owl:Class rdf:about="&wonex;MatchExplanation"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#Connection -->
+    <!-- https://w3id.org/won/model#Connection -->
 
     <owl:Class rdf:about="&won;Connection"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#ConnectionContainer -->
+    <!-- https://w3id.org/won/model#ConnectionContainer -->
 
     <owl:Class rdf:about="&won;ConnectionContainer"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#EventContainer -->
+    <!-- https://w3id.org/won/model#EventContainer -->
 
     <owl:Class rdf:about="&won;EventContainer"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#Hint -->
+    <!-- https://w3id.org/won/model#Hint -->
 
     <owl:Class rdf:about="&won;Hint"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#Need -->
+    <!-- https://w3id.org/won/model#Need -->
 
     <owl:Class rdf:about="&won;Need"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#NeedModality -->
+    <!-- https://w3id.org/won/model#NeedModality -->
 
     <owl:Class rdf:about="&won;NeedModality"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#Open -->
+    <!-- https://w3id.org/won/model#Open -->
 
     <owl:Class rdf:about="&won;Open"/>
     
 
 
-    <!-- http://purl.org/webofneeds/model#Region -->
+    <!-- https://w3id.org/won/model#Region -->
 
     <owl:Class rdf:about="&won;Region"/>
     
@@ -426,7 +426,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Connection_01_1 -->
+    <!-- https://w3id.org/won/example#Connection_01_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Connection_01_1">
         <rdf:type rdf:resource="&won;Connection"/>
@@ -436,7 +436,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Connection_02_1 -->
+    <!-- https://w3id.org/won/example#Connection_02_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Connection_02_1">
         <rdf:type rdf:resource="&won;Connection"/>
@@ -445,7 +445,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Connections_01 -->
+    <!-- https://w3id.org/won/example#Connections_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Connections_01">
         <rdf:type rdf:resource="&won;ConnectionContainer"/>
@@ -454,7 +454,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Connections_02 -->
+    <!-- https://w3id.org/won/example#Connections_02 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Connections_02">
         <rdf:type rdf:resource="&won;ConnectionContainer"/>
@@ -463,7 +463,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#CouchDepth -->
+    <!-- https://w3id.org/won/example#CouchDepth -->
 
     <owl:NamedIndividual rdf:about="&wonex;CouchDepth">
         <rdf:type rdf:resource="&gr;QuantitativeValue"/>
@@ -473,7 +473,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#CouchHeight -->
+    <!-- https://w3id.org/won/example#CouchHeight -->
 
     <owl:NamedIndividual rdf:about="&wonex;CouchHeight">
         <rdf:type rdf:resource="&gr;QuantitativeValue"/>
@@ -483,7 +483,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#CouchPerson -->
+    <!-- https://w3id.org/won/example#CouchPerson -->
 
     <owl:NamedIndividual rdf:about="&wonex;CouchPerson">
         <rdf:type rdf:resource="&xsd;string"/>
@@ -491,7 +491,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#CouchWeight -->
+    <!-- https://w3id.org/won/example#CouchWeight -->
 
     <owl:NamedIndividual rdf:about="&wonex;CouchWeight">
         <rdf:type rdf:resource="&gr;QuantitativeValue"/>
@@ -501,7 +501,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#CouchWidth -->
+    <!-- https://w3id.org/won/example#CouchWidth -->
 
     <owl:NamedIndividual rdf:about="&wonex;CouchWidth">
         <rdf:type rdf:resource="&gr;QuantitativeValue"/>
@@ -511,7 +511,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#EventContainer_01 -->
+    <!-- https://w3id.org/won/example#EventContainer_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;EventContainer_01">
         <rdf:type rdf:resource="&won;EventContainer"/>
@@ -521,7 +521,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Hint_01_1 -->
+    <!-- https://w3id.org/won/example#Hint_01_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Hint_01_1">
         <rdf:type rdf:resource="&won;Hint"/>
@@ -533,7 +533,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#MatchExplanation_01 -->
+    <!-- https://w3id.org/won/example#MatchExplanation_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;MatchExplanation_01">
         <rdf:type rdf:resource="&wonex;MatchExplanation"/>
@@ -543,7 +543,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Matcher_01 -->
+    <!-- https://w3id.org/won/example#Matcher_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Matcher_01">
         <rdf:type rdf:resource="http://www.w3.org/ns/ldp#Resource"/>
@@ -551,7 +551,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#MyCouch -->
+    <!-- https://w3id.org/won/example#MyCouch -->
 
     <owl:NamedIndividual rdf:about="&wonex;MyCouch">
         <rdf:type rdf:resource="http://www.freebase.com/m/02crq1"/>
@@ -559,7 +559,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#MyCouchConstraint -->
+    <!-- https://w3id.org/won/example#MyCouchConstraint -->
 
     <owl:NamedIndividual rdf:about="&wonex;MyCouchConstraint">
         <rdf:type rdf:resource="&oslc;ResourceShape"/>
@@ -569,7 +569,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#MyCouchConstraintPropertyWeight -->
+    <!-- https://w3id.org/won/example#MyCouchConstraintPropertyWeight -->
 
     <owl:NamedIndividual rdf:about="&wonex;MyCouchConstraintPropertyWeight">
         <rdf:type rdf:resource="&oslc;Property"/>
@@ -580,7 +580,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#NeedContent_01 -->
+    <!-- https://w3id.org/won/example#NeedContent_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;NeedContent_01">
         <rdf:type rdf:resource="&won;NeedContent"/>
@@ -598,7 +598,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#NeedModality_01_1 -->
+    <!-- https://w3id.org/won/example#NeedModality_01_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;NeedModality_01_1">
         <rdf:type rdf:resource="&won;NeedModality"/>
@@ -610,7 +610,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#NeedModality_01_2 -->
+    <!-- https://w3id.org/won/example#NeedModality_01_2 -->
 
     <owl:NamedIndividual rdf:about="&wonex;NeedModality_01_2">
         <rdf:type rdf:resource="&won;NeedModality"/>
@@ -621,7 +621,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#NeedOwner_1 -->
+    <!-- https://w3id.org/won/example#NeedOwner_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;NeedOwner_1">
         <rdf:type rdf:resource="&schema;Person"/>
@@ -630,7 +630,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Need_01 -->
+    <!-- https://w3id.org/won/example#Need_01 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Need_01">
         <rdf:type rdf:resource="&won;Need"/>
@@ -647,7 +647,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Need_02 -->
+    <!-- https://w3id.org/won/example#Need_02 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Need_02">
         <rdf:type rdf:resource="&won;Need"/>
@@ -659,7 +659,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Open_01_1 -->
+    <!-- https://w3id.org/won/example#Open_01_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Open_01_1">
         <rdf:type rdf:resource="&won;Open"/>
@@ -669,7 +669,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#PriceSpecification_01_1 -->
+    <!-- https://w3id.org/won/example#PriceSpecification_01_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;PriceSpecification_01_1">
         <won:hasLowerPriceLimit rdf:datatype="&xsd;float">100.0</won:hasLowerPriceLimit>
@@ -679,7 +679,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#PriceSpecification_01_2 -->
+    <!-- https://w3id.org/won/example#PriceSpecification_01_2 -->
 
     <owl:NamedIndividual rdf:about="&wonex;PriceSpecification_01_2">
         <won:hasLowerPriceLimit rdf:datatype="&xsd;float">130.0</won:hasLowerPriceLimit>
@@ -689,7 +689,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Thurngasse_8 -->
+    <!-- https://w3id.org/won/example#Thurngasse_8 -->
 
     <owl:NamedIndividual rdf:about="&wonex;Thurngasse_8">
         <rdf:type rdf:resource="&wgs84_pos;Point"/>
@@ -700,7 +700,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#TimeConstraint_01_1_1 -->
+    <!-- https://w3id.org/won/example#TimeConstraint_01_1_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;TimeConstraint_01_1_1">
         <won:recurTimes rdf:datatype="&xsd;integer">0</won:recurTimes>
@@ -711,7 +711,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#TimeConstraint_01_1_2 -->
+    <!-- https://w3id.org/won/example#TimeConstraint_01_1_2 -->
 
     <owl:NamedIndividual rdf:about="&wonex;TimeConstraint_01_1_2">
         <won:recurTimes rdf:datatype="&xsd;integer">0</won:recurTimes>
@@ -722,7 +722,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#TimeConstraint_01_2 -->
+    <!-- https://w3id.org/won/example#TimeConstraint_01_2 -->
 
     <owl:NamedIndividual rdf:about="&wonex;TimeConstraint_01_2">
         <won:startTime rdf:datatype="&xsd;dateTimeStamp">2013-04-04T09:00:00+02:00</won:startTime>
@@ -731,7 +731,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#WeightConstraint_1 -->
+    <!-- https://w3id.org/won/example#WeightConstraint_1 -->
 
     <owl:NamedIndividual rdf:about="&wonex;WeightConstraint_1">
         <rdf:type rdf:resource="&oslc;ResourceShape"/>
@@ -741,7 +741,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#WeightConstraint_1_HasValue -->
+    <!-- https://w3id.org/won/example#WeightConstraint_1_HasValue -->
 
     <owl:NamedIndividual rdf:about="&wonex;WeightConstraint_1_HasValue">
         <rdf:type rdf:resource="&oslc;Property"/>
@@ -752,7 +752,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#WeightConstraint_1_Unit -->
+    <!-- https://w3id.org/won/example#WeightConstraint_1_Unit -->
 
     <owl:NamedIndividual rdf:about="&wonex;WeightConstraint_1_Unit">
         <rdf:type rdf:resource="&oslc;Property"/>
@@ -763,7 +763,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/example#Österreich -->
+    <!-- https://w3id.org/won/example#Österreich -->
 
     <owl:NamedIndividual rdf:about="&wonex;Österreich">
         <rdf:type rdf:resource="&won;Region"/>
@@ -773,7 +773,7 @@
     
 
 
-    <!-- http://purl.org/webofneeds/model#hasWeight -->
+    <!-- https://w3id.org/won/model#hasWeight -->
 
     <owl:NamedIndividual rdf:about="&won;hasWeight"/>
     

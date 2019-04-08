@@ -6,13 +6,13 @@
 @prefix event: <http://localhost:8080/won/resource/event/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix won:   <http://purl.org/webofneeds/model#> .
+@prefix won:   <https://w3id.org/won/model#> .
 @prefix local: <http://localhost:8080/won/resource/> .
-@prefix msg:   <http://purl.org/webofneeds/message#> .
+@prefix msg:   <https://w3id.org/won/message#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#> .
 @prefix signature: <http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#> .
 @prefix cert: <http://www.w3.org/ns/auth/cert#> .
-@prefix woncrypt:   <http://purl.org/webofneeds/woncrypt#> .
+@prefix woncrypt:   <https://w3id.org/won/woncrypt#> .
 
 
 

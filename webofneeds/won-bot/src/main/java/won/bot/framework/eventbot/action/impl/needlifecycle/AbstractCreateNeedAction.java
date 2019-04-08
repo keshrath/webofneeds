@@ -104,12 +104,4 @@ public abstract class AbstractCreateNeedAction extends BaseEventBotAction {
         this.doNotMatch = doNotMatch;
     }
 
-    private boolean hasFacet(FacetType facetToCheck) {
-        for (URI facet : facets) {
-            if (facet.equals(facetToCheck.getURI())) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

@@ -332,11 +332,11 @@ agr:proposes event:6671551888677331000 .
 ```
 <https://localhost:8443/won/resource/event/557600936467257340> {
     <https://localhost:8443/won/resource/event/6671551888677331000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "hi" .
 }
 ```
@@ -709,11 +709,11 @@ diff - only in expected:
 diff - only in actual:
 <https://localhost:8443/won/resource/event/00d5wzbbf8hzzt2eewcc> {
     <https://localhost:8443/won/resource/event/4672813835273634000>
-            <http://purl.org/webofneeds/model#hasFeedback>
-                    [ <http://purl.org/webofneeds/model#forResource>
+            <https://w3id.org/won/model#hasFeedback>
+                    [ <https://w3id.org/won/model#forResource>
                               <https://localhost:8443/won/resource/connection/xq6jofxo2w8o05io6dre> ;
-                      <http://purl.org/webofneeds/model#hasBinaryRating>
-                              <http://purl.org/webofneeds/model#Good>
+                      <https://w3id.org/won/model#hasBinaryRating>
+                              <https://w3id.org/won/model#Good>
                     ] .
 }
 ```
@@ -745,11 +745,11 @@ Test output:
 
 <https://localhost:8443/won/resource/event/00d5wzbbf8hzzt2eewcc> {
     <https://localhost:8443/won/resource/event/6671551888677331000>
-            <http://purl.org/webofneeds/model#hasFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasRemoteFacet>
-                    <http://purl.org/webofneeds/model#OwnerFacet> ;
-            <http://purl.org/webofneeds/model#hasTextMessage>
+            <https://w3id.org/won/model#hasFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasRemoteFacet>
+                    <https://w3id.org/won/model#OwnerFacet> ;
+            <https://w3id.org/won/model#hasTextMessage>
                     "hi" .
 }
 ```
@@ -787,11 +787,11 @@ test (output):
 
 <https://localhost:8443/won/resource/event/usi9yhill1lo2xi70sjx> {
     <https://localhost:8443/won/resource/event/4672813835273634000>
-            <http://purl.org/webofneeds/model#hasFeedback>
-                    [ <http://purl.org/webofneeds/model#forResource>
+            <https://w3id.org/won/model#hasFeedback>
+                    [ <https://w3id.org/won/model#forResource>
                               <https://localhost:8443/won/resource/connection/xq6jofxo2w8o05io6dre> ;
-                      <http://purl.org/webofneeds/model#hasBinaryRating>
-                              <http://purl.org/webofneeds/model#Good>
+                      <https://w3id.org/won/model#hasBinaryRating>
+                              <https://w3id.org/won/model#Good>
                     ] .
 }
 ```

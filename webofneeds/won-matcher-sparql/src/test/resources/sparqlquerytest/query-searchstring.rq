@@ -1,4 +1,4 @@
-PREFIX won:<http://purl.org/webofneeds/model#> 
+PREFIX won:<https://w3id.org/won/model#> 
 SELECT DISTINCT  *
 WHERE
   { SELECT  ?result

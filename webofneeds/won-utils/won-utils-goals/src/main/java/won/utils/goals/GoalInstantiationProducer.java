@@ -59,7 +59,7 @@ public class GoalInstantiationProducer {
         combinedDataset.addNamedModel("need1", strippedNeed1);
         combinedDataset.addNamedModel("need2", strippedNeed2);
         if (conversation != null) {
-            String sparqlQuery = "PREFIX msg: <http://purl.org/webofneeds/message#> \n" + "DELETE { \n"
+            String sparqlQuery = "PREFIX msg: <https://w3id.org/won/message#> \n" + "DELETE { \n"
                             + "    GRAPH ?g {?s ?p ?o} \n" + "} \n" + "WHERE { \n" + "    GRAPH ?g { ?s ?p ?o } \n"
                             + "    { SELECT (GROUP_CONCAT(?content; separator=\" \") as ?contentGraphs) \n"
                             + "            WHERE { GRAPH <urn:x-arq:UnionGraph> { ?msg msg:hasContent ?content } \n"

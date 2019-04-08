@@ -75,7 +75,7 @@ SELECT/CONSTRUCT queries must yield empty results
 
 ```
 # The `Create` message of a need must not contain a reference
-prefix msg: <http://purl.org/webofneeds/message#>
+prefix msg: <https://w3id.org/won/message#>
 select ?msg where {
   ?msg msg:hasMessageType msg:CreateMessage;
 	   msg:hasPreviousMessage ?msg.
@@ -84,8 +84,8 @@ select ?msg where {
 ```
 # Any message other than a `Create` message must contain at least one reference
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX msg: <http://purl.org/webofneeds/message#>
-PREFIX won: <http://purl.org/webofneeds/model#>
+PREFIX msg: <https://w3id.org/won/message#>
+PREFIX won: <https://w3id.org/won/model#>
 SELECT * WHERE {
   ?msg msg:hasMessageType ?msgType .
   FILTER NOT EXISTS {?msg msg:hasPreviousMessage ?msg2}  
@@ -97,8 +97,8 @@ SELECT * WHERE {
 # eventContainerwith the exception of references pointing to 
 # the `Create` message.
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix msg: <http://purl.org/webofneeds/message#>
-prefix won: <http://purl.org/webofneeds/model#>
+prefix msg: <https://w3id.org/won/message#>
+prefix won: <https://w3id.org/won/model#>
 select * where {
   ?cnt rdfs:member ?msg .
   ?cnt2 rdfs:member ?msg2 .
@@ -109,7 +109,7 @@ select * where {
 ```
 ```
 # There must be no directed circles in the graph
-PREFIX msg: <http://purl.org/webofneeds/message#>
+PREFIX msg: <https://w3id.org/won/message#>
 SELECT ?msg WHERE {
   {
   	?msg msg:hasPreviousMessage ?msg .  
@@ -122,7 +122,7 @@ SELECT ?msg WHERE {
 ```
 # From any message, other than a `Create` message, there must be 
 # at least one path to the need's `Create` message
-PREFIX msg: <http://purl.org/webofneeds/message#>
+PREFIX msg: <https://w3id.org/won/message#>
 SELECT ?msg WHERE {
   ?msg msg:hasMessageType ?msgType.
   FILTER NOT EXISTS {
@@ -135,7 +135,7 @@ SELECT ?msg WHERE {
 
 ```
 # A Response must always reference the message that it is a response to.
-PREFIX msg: <http://purl.org/webofneeds/message#>
+PREFIX msg: <https://w3id.org/won/message#>
 SELECT * WHERE {
   {
   	?resp a msg:FromSystem .
@@ -163,8 +163,8 @@ SELECT * WHERE {
 Find all messages in temporal ordering
 ```
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX msg: <http://purl.org/webofneeds/message#>
-PREFIX won: <http://purl.org/webofneeds/model#>
+PREFIX msg: <https://w3id.org/won/message#>
+PREFIX won: <https://w3id.org/won/model#>
 SELECT distinct ?first ?msg ?distance ?text ?msgType ?time ?rem WHERE {
  {
    SELECT distinct ?first ?msg (count (?mid) as ?distance) WHERE {

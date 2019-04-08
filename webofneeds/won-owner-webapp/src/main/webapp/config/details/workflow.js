@@ -106,7 +106,7 @@ export const petriNetWorkflow = {
     return undefined;
   },
 };
-/*<https://192.168.124.49:8443/won/resource/event/xlifb1yz7opl/petrinetWorkflow/fzkwlb9xdp> wf:firesTransition <http://purl.org/webofneeds/process/taxi#DriverArrivedAtPickupLocation> .
+/*<https://192.168.124.49:8443/won/resource/event/xlifb1yz7opl/petrinetWorkflow/fzkwlb9xdp> wf:firesTransition <https://w3id.org/won/process/taxi#DriverArrivedAtPickupLocation> .
  <this:eventuri> won:hasTextMessage "Dear passenger, I'm waiting at the pickup location. You have 5 minutes." .*/
 
 export const petriNetTransition = {

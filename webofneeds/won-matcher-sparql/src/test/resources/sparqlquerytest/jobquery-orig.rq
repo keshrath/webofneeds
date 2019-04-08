@@ -1,4 +1,4 @@
-PREFIX won: <http://purl.org/webofneeds/model#>
+PREFIX won: <https://w3id.org/won/model#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX s: <http://schema.org/>
 PREFIX geo: <http://www.bigdata.com/rdf/geospatial#>

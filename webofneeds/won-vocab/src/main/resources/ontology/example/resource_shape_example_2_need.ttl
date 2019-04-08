@@ -1,6 +1,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix won: <http://purl.org/webofneeds/model#> .
+@prefix won: <https://w3id.org/won/model#> .
 @prefix oslc: <http://open-services.net/ns/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/>
 @prefix travel: <http://example.org/travel#> .

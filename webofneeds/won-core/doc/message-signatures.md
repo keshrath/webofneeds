@@ -26,7 +26,7 @@ graph has to be verified using the signature value, the public key of the signer
 Below is an example of the signature graph referencing another graph that it signs (the referenced graph is not shown).
 
 ```
-@prefix msg:   <http://purl.org/webofneeds/message#> .
+@prefix msg:   <https://w3id.org/won/message#> .
 @prefix signature: <http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix cert:  <http://www.w3.org/ns/auth/cert#> .
@@ -73,17 +73,17 @@ and two signatures:
 
 
 ```
-@prefix msg:   <http://purl.org/webofneeds/message#> .
+@prefix msg:   <https://w3id.org/won/message#> .
 @prefix conn:  <https://localhost8889/won/resource/connection/> .
 @prefix signature: <http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#> .
-@prefix woncrypt: <http://purl.org/webofneeds/woncrypt#> .
+@prefix woncrypt: <https://w3id.org/won/woncrypt#> .
 @prefix need:  <https://localhost8889/won/resource/need/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix cert:  <http://www.w3.org/ns/auth/cert#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix won:   <http://purl.org/webofneeds/model#> .
+@prefix won:   <https://w3id.org/won/model#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#> .
 @prefix event: <https://localhost8889/won/resource/event/> .
 @prefix sioc:  <http://rdfs.org/sioc/ns#> .

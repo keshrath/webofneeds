@@ -44,7 +44,7 @@ public class NeedIndexer {
     public static final String SOLR_SEEKS_SEEKS_LOCATION_COORDINATES_FIELD = "seeksSeeks_need_location";
     // SPARQL query to contruct a need object out of the dataset, use all graphs
     // that reference "won:Need"
-    private static final String NEED_INDEX_QUERY = "prefix won: <http://purl.org/webofneeds/model#> construct { ?a ?b ?c .} where { "
+    private static final String NEED_INDEX_QUERY = "prefix won: <https://w3id.org/won/model#> construct { ?a ?b ?c .} where { "
                     + "GRAPH ?graph { ?need a won:Need. ?a ?b ?c. } }";
     @Autowired
     private SolrMatcherConfig config;

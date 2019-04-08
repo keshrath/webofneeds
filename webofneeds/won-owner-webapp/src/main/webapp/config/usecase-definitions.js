@@ -37,7 +37,7 @@ import { activitiesGroup } from "./usecases/group-activities";
  *    ...,
  *    generateQuery: (draft, resultName) => {
  *        new SparqlParser.parse(`
- *            PREFIX won: <http://purl.org/webofneeds/model#>
+ *            PREFIX won: <https://w3id.org/won/model#>
  *
  *            SELECT ${resultName} WHERE {
  *                ${resultName} a won:Need .

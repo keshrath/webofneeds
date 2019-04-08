@@ -44,7 +44,7 @@ public class WonNodeSparqlService extends SparqlService {
         String queryString = "SELECT ?graphUri ?nodeUri WHERE { GRAPH ?graphUri {?nodeUri won:hasUriPrefixSpecification ?c} }";
         ParameterizedSparqlString pps = new ParameterizedSparqlString();
         pps.setCommandText(queryString);
-        pps.setNsPrefix("won", "http://purl.org/webofneeds/model#");
+        pps.setNsPrefix("won", "https://w3id.org/won/model#");
         log.debug("Query SPARQL Endpoint: {}", sparqlEndpoint);
         log.debug("Execute query: {}", pps.toString());
         try (QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndpoint, pps.asQuery())) {

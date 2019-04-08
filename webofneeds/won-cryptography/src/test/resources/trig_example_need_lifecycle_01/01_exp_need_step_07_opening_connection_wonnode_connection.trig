@@ -15,8 +15,8 @@
 @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix cert            <http://www.w3.org/ns/auth/cert#> .
 @prefix tio:            <http://purl.org/tio/ns#> .
-@prefix won:            <http://purl.org/webofneeds/model#> .
-@prefix crypt:          <http://purl.org/webofneeds/cryptography#> .
+@prefix won:            <https://w3id.org/won/model#> .
+@prefix crypt:          <https://w3id.org/won/cryptography#> .
 
 ##################################################################
 #                   CONNECTION GRAPH
